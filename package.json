@@ -1,0 +1,32 @@
+{
+  "name": "project-catwalk",
+  "version": "1.0.0",
+  "description": "just starting the set-up - need to add workflows",
+  "main": "index.js",
+  "scripts": {
+    "build": "./node_modules/.bin/babel client --out-dir public --presets @babel/preset-react --source-maps inline --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Impreffively/Project-Catwalk.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Impreffively/Project-Catwalk/issues"
+  },
+  "homepage": "https://github.com/Impreffively/Project-Catwalk#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.14.8",
+    "@babel/preset-react": "^7.14.5",
+    "express": "^4.17.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.0",
+    "webpack": "^5.45.1"
+  }
+}
