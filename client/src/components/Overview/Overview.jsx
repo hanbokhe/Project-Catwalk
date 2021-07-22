@@ -8,10 +8,10 @@ const Overview = () => {
         axios.get('/products')
             .then(res => {
                 console.log(res)
-                setProducts(res.data);
+                // setProducts(res.data);
             })
             .catch(err => {
-                console.log(err)
+                console.error(err)
             })
     })
 
