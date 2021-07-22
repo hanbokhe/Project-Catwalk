@@ -8,6 +8,7 @@ const App = () => {
   return (
     <div>
       Hello World
+      <Overview />
       {/* <Overview/>
       <RelatedProduct/>
       <QA/>
