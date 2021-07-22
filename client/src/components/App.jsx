@@ -1,12 +1,13 @@
 import React from 'react';
-import Overview from './components/Overview/Overview.js';
-import RelatedProduct from './components/RelatedProduct/RelatedProduct.js';
-import QA from './components/QA/QA.js';
-import Reviews from './components/Reviews/Reviews.js';
+import Overview from './Overview/Overview.jsx';
+import RelatedProduct from './RelatedProducts/RelatedProducts.jsx';
+import QA from './QA/QA.jsx';
+import Reviews from './Reviews/Reviews.jsx';
 
 const App = () => {
   return (
     <div>
+      Hello World
       {/* <Overview/>
       <RelatedProduct/>
       <QA/>
