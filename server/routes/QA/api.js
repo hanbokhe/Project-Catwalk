@@ -5,7 +5,7 @@ var getRelated = ({id}) => {
 
   var options = {
     method: 'GET',
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hrsfo/products/${id}/related`,
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/?product_id=${id}/related`,
     headers: {
       'Authorization': `${TOKEN}`
     }
