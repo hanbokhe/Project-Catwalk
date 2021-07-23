@@ -15,15 +15,20 @@ app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
 })
 
-app.get('/products', (req, res) => {
-  console.log('Products', req.body);
-  //var{id} = req.body.id;
-  // api.getProducts(id)
-  //     .then((data) => {
-  //         console.log(data);
-  //         res.status(200).send(data);
-  //     })
-  //     .catch((err) => {
-  //         res.status(404).send(err);
-  //     })
-})
+// app.get('/products', (req, res) => {
+//   console.log('Products', req.body);
+//   //var{id} = req.body.id;
+//   // api.getProducts(id)
+//   //     .then((data) => {
+//   //         console.log(data);
+//   //         res.status(200).send(data);
+//   //     })
+//   //     .catch((err) => {
+//   //         res.status(404).send(err);
+//   //     })
+// })
+
+app.get('/', (req, res) => {
+  qa.getData();
+  res.send('Hello World!');
+});
