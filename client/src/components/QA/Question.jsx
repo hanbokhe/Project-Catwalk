@@ -11,7 +11,12 @@ class Question extends React.Component {
 
   render() {
     return (
-    <AnswersList />
+      <div>
+        Q: -
+        A: -
+        helpful question button/count -
+        <AnswersList />
+      </div>
     )
   }
 }

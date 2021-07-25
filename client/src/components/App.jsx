@@ -4,11 +4,11 @@ import RelatedProduct from './RelatedProducts/RelatedProducts.jsx';
 import QA from './QA/QA.jsx';
 import Reviews from './Reviews/Reviews.jsx';
 
-const App = () => {
+const App = (props) => {
   return (
     <div>
       Hello World
-      <Overview />
+      <QA/>
       {/* <Overview/>
       <RelatedProduct/>
       <QA/>

@@ -1,11 +1,12 @@
 import React from 'react';
 
 class QuestionsList extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
 
     };
+    console.log(this.props.questionData)
   }
 
   render() {
