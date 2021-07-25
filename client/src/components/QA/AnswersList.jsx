@@ -11,7 +11,13 @@ class AnswersList extends React.Component {
 
   render() {
     return (
-    <Answer />
+      <div>
+        <Answer />
+        helpful button -
+        report button -
+        load more answers
+      </div>
+
     )
   }
 }

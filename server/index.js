@@ -28,7 +28,18 @@ app.listen(PORT, () => {
 //   //     })
 // })
 
-app.get('/', (req, res) => {
-  qa.getData();
-  res.send('Hello World!');
-});
+// const app = require('../../index.js');
+// const api = require('./api.js');
+
+
+app.get('./GET/qa/questions', (req, res) => {
+  console.log('Q and A', req.body);
+  var {id} = req.body;
+  qa.getQuestions(id)
+    .then((data) => {
+      res.send(data); //.status.(404)
+    })
+    .catch((err) => {
+      res.send(err); //.status.(404)
+    })
+})
