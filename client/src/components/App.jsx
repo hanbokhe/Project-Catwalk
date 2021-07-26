@@ -7,13 +7,12 @@ import Reviews from './Reviews/Reviews.jsx';
 const App = (props) => {
   return (
     <div>
-      
-      <QA/>
-      <Reviews />
-      {/* <Overview/>
+
+      <Overview />
       <RelatedProduct/>
       <QA/>
-      <Reviews/> */}
+      <Reviews />
+
     </div>
   )
 }
