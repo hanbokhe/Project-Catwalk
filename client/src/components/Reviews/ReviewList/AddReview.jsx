@@ -9,7 +9,6 @@ class WriteReview extends React.Component {
       characteristic: 4,
       summary: "summary",
       review: "write your review here",
-
     }
   }
 }
