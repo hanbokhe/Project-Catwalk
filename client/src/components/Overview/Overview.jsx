@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import ProductItem from './ProductItem.jsx';
 
 const Overview = () => {
     const [products, setProducts] = useState([])
@@ -7,23 +8,21 @@ const Overview = () => {
     useEffect(() => {
         axios.get('/products')
             .then(res => {
-                console.log(res)
-                // setProducts(res.data);
+                // console.log(res.data)
+                setProducts(res.data);
             })
             .catch(err => {
                 console.error(err)
             })
-    })
+    }, [])
 
     return (
         <div> 
-            <ul>
-                {
-                    products.map(product => (
-                        <li key={product.id}>{product.title}</li>
-                    ))
-                }
-            </ul>
+            {
+                products.map(product => (
+                    <div key={product.id}>{product.id} - {product.name} </div>
+                ))
+            }
 
         </div>
     )
