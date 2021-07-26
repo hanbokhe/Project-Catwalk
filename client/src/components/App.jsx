@@ -7,7 +7,6 @@ import Reviews from './Reviews/Reviews.jsx';
 const App = () => {
   return (
     <div>
-      Hello World
       <Overview />
       {/* <Overview/>
       <RelatedProduct/>

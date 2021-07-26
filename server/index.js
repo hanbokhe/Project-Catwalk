@@ -16,14 +16,13 @@ app.listen(PORT, () => {
 })
 
 app.get('/products', (req, res) => {
-  console.log('Products', req.body);
-  //var{id} = req.body.id;
-  // api.getProducts(id)
-  //     .then((data) => {
-  //         console.log(data);
-  //         res.status(200).send(data);
-  //     })
-  //     .catch((err) => {
-  //         res.status(404).send(err);
-  //     })
+  overview.getProducts()
+      .then((data) => {
+          // console.log(data);
+          res.status(200).send(data.data);
+      })
+      .catch((err) => {
+        console.log(err)
+          res.status(404).send(err);
+      })
 })
