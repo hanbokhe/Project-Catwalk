@@ -15,6 +15,19 @@ app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
 })
 
+
+app.get('/products', (req, res) => {
+  overview.getProducts()
+      .then((data) => {
+          // console.log(data);
+          res.status(200).send(data.data);
+      })
+      .catch((err) => {
+        console.log(err)
+          res.status(404).send(err);
+      })
+})
+
 // app.get('/products', (req, res) => {
 //   console.log('Products', req.body);
 //   //var{id} = req.body.id;
@@ -43,3 +56,4 @@ app.get('./GET/qa/questions', (req, res) => {
       res.send(err); //.status.(404)
     })
 })
+
