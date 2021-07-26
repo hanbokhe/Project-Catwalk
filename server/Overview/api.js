@@ -6,7 +6,7 @@ const getProducts = () => {
     return axios({
         method: 'get',
         url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products`,
-        headers: {'Authorization': `token ${config.TOKEN}`},
+        headers: {'Authorization': `${config.TOKEN}`}
     })
 }
 
