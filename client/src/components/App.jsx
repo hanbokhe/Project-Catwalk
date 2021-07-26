@@ -7,8 +7,9 @@ import Reviews from './Reviews/Reviews.jsx';
 const App = (props) => {
   return (
     <div>
-      Hello World
+      
       <QA/>
+      <Reviews />
       {/* <Overview/>
       <RelatedProduct/>
       <QA/>
