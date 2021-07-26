@@ -1,7 +1,7 @@
 import React from 'react';
 import ReviewTile from './ReviewTile.jsx';
 import TotalSort from './TotalSort.jsx';
-// import Add from Add.jsx;
+import WriteReview from './WriteReview.jsx';
 
 
 class ReviewList extends React.Component {
@@ -16,6 +16,7 @@ class ReviewList extends React.Component {
       <div> Hello ReviewList
       <TotalSort />
       <ReviewTile />
+      <WriteReview />
       </div>
     )
   }
