@@ -12,7 +12,7 @@ const Details = ({defaultOne}) => {
     if(defaultOne.sale_price === null) {
       setPrice(defaultOne.original_price);
     } else {
-      setPrice(defaultOne.original_price)
+      setPrice(defaultOne.sale_price)
     }
   }
 
