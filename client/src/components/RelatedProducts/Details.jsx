@@ -1,26 +1,25 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 
 const Detail_div = styled.div`
 display: flex;
-justify-content: center;
+flex-direction: column;
+align-items: center;
+margin: 2px;
 `
 
 const Details = ({defaultOne}) => {
-  const [price, setPrice] = useState({});
-  const getPrice = () => {
-    if(defaultOne.sale_price === null) {
-      setPrice(defaultOne.original_price);
-    } else {
-      setPrice(defaultOne.sale_price)
-    }
-  }
 
   return (
-    <Detail_div>
-      <h5>{defaultOne.name}</h5>
-      <h6>{}</h6>
-    </Detail_div>
+    <React.Fragment>
+      <Detail_div>
+        <h4>{defaultOne.name}</h4>
+        {
+          defaultOne.sale_price ? <h5>{defaultOne.sale_price}</h5>
+          : <h5>{defaultOne.original_price}</h5>
+        }
+      </Detail_div>
+    </React.Fragment>
   )
 }
 

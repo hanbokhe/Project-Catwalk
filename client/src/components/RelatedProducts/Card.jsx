@@ -42,15 +42,24 @@ const Card = ({product}) => {
 
 
   return (
-    <div>
+    <React.Fragment>
       <Card_div>
-        { photo ?
+        <>
+        {
+          photo ?
           <img src={photo}></img>
           : null
         }
-        <Details defaultOne={defaultItem} />
+        </>
+        <>
+        {
+          defaultItem ?
+          <Details defaultOne={product.results[0]} />
+          : <Details defaultOne={defaultItem} />
+        }
+        </>
       </Card_div>
-    </div>
+    </React.Fragment>
   )
 }
 
