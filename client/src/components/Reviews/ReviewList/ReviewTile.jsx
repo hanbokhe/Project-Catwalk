@@ -18,6 +18,8 @@ class ReviewTile extends React.Component {
   }
 
   componentDidMount() {
+    console.log(this.props),
+
     this.setState({
       starRating: this.props.review.rating,
       date: this.props.review.date,
@@ -37,6 +39,11 @@ class ReviewTile extends React.Component {
     return (
       <div>
         <h1> Review Tile</h1>
+        <div>
+          <h1> star testing</h1>
+          {/* <div class="stars" style="--rating: 2.3;" aria-label="rating of the product" */}
+
+        </div>
         <div>
           rating review: {this.state.starRating}
         </div>
