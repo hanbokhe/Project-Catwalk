@@ -4,14 +4,15 @@ import RelatedProduct from './RelatedProducts/RelatedProducts.jsx';
 // import QA from './QA/QA.jsx';
 // import Reviews from './Reviews/Reviews.jsx';
 
-const App = () => {
-  const [currentProductId, setProductId] = useState(25167);
+const App = (props) => {
   return (
     <div>
-      {/* <Overview /> */}
-      <RelatedProduct currentProductId={currentProductId}/>
-      {/* <QA/>
-      <Reviews/> */}
+
+      <Overview />
+      <RelatedProduct/>
+      <QA/>
+      <Reviews />
+
     </div>
   )
 }
