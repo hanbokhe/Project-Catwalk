@@ -1,11 +1,10 @@
 const express = require('express');
 const axios = require('axios');
-const overview = require('./Overview/api.js');
+// const overview = require('./Overview/api.js');
 const relatedProducts = require('./RelatedProducts/api.js');
+
 const qa = require('./QA/api.js');
 const reviews = require('./Reviews/api.js');
-//const api = require('../Reviews/api.js')
-
 
 const app = express();
 const PORT = 3000;
