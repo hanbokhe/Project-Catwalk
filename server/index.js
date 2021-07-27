@@ -16,30 +16,44 @@ app.listen(PORT, () => {
 })
 
 
-app.get('/related/:id', (req, res) => {
-  //console.log('Related Products', req.params);
-  var {id} = req.params;
+app.get('/products', (req, res) => {
+  overview.getProducts()
+      .then((data) => {
+          // console.log(data);
+          res.status(200).send(data.data);
+      })
+      .catch((err) => {
+        console.log(err)
+          res.status(404).send(err);
+      })
+})
 
-  relatedProducts.getRelated(id)
-    .then(({data}) => {
-      //console.log(data);
-      res.status(200).send(data);
+// app.get('/products', (req, res) => {
+//   console.log('Products', req.body);
+//   //var{id} = req.body.id;
+//   // api.getProducts(id)
+//   //     .then((data) => {
+//   //         console.log(data);
+//   //         res.status(200).send(data);
+//   //     })
+//   //     .catch((err) => {
+//   //         res.status(404).send(err);
+//   //     })
+// })
+
+// const app = require('../../index.js');
+// const api = require('./api.js');
+
+
+app.get('./GET/qa/questions', (req, res) => {
+  console.log('Q and A', req.body);
+  var {id} = req.body;
+  qa.getQuestions(id)
+    .then((data) => {
+      res.send(data); //.status.(404)
     })
     .catch((err) => {
-      res.status(404).send(err);
+      res.send(err); //.status.(404)
     })
 })
 
-app.get('/styles/:id', (req, res) => {
-  //console.log('Related Products', req.params);
-
-  var {id} = req.params;
-  relatedProducts.getStyles(id)
-    .then(({data}) => {
-
-      res.status(200).send(data);
-    })
-    .catch((err) => {
-      res.status(404).send(err);
-    })
-})
