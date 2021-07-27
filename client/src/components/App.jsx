@@ -8,9 +8,9 @@ const App = (props) => {
   return (
     <div>
 
-      <Overview />
+      {/* <Overview />
       <RelatedProduct/>
-      <QA/>
+      <QA/> */}
       <Reviews />
 
     </div>
