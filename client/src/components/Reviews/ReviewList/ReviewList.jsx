@@ -45,9 +45,7 @@ class ReviewList extends React.Component {
   }
 
   handleMoreReview() {
-    console.log("did I click?")
     var count = this.state.reviewCount
-    console.log(this.state.reviewList.length)
     var display = this.state.reviewList.slice(0, count)
     this.setState({
       display: display,
@@ -58,31 +56,52 @@ class ReviewList extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <h1>Hello ReviewList</h1>
-        <TotalSort />
-          {this.state.display.map((review, index) =>
-          <ReviewTile
-            key = {index}
-            review = {review}
-          />
-        )}
-        <h1>Buttons</h1>
+    var toRender = []
+    if (this.state.reviewList.length) {
+      toRender = (
         <div>
-          <button onClick={this.handleMoreReview}>
-            More Review
-          </button>
+          <h1>Hello ReviewList</h1>
+          <TotalSort />
+          {this.state.display.map((review, index) =>
+            <ReviewTile
+              key={index}
+              review={review}
+            />
+          )}
+          <h1>Buttons</h1>
+          <div>
+            <button onClick={this.handleMoreReview}>
+              More Review
+            </button>
 
-          <button>
-            Add a review +
-          </button>
+            <button>
+              Add a review +
+            </button>
+          </div>
+
+          <WriteReview />
+
         </div>
+      )
+    } else {
+      toRender = (
+        <div>
+          <h1>Hello ReviewList</h1>
+          <TotalSort />
+          {this.state.display.map((review, index) =>
+            <ReviewTile
+              key={index}
+              review={review}
+            />
+          )}
+          <h1>Buttons</h1>
 
-        <WriteReview />
+          <WriteReview />
 
-      </div>
-    )
+        </div>
+      )
+    }
+    return toRender
   }
 }
 
