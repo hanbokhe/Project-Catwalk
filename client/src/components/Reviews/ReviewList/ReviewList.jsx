@@ -44,7 +44,6 @@ class ReviewList extends React.Component {
     return (
       <div>
         <h1>Hello ReviewList</h1>
-      <Stars rating = "90%" />
       <TotalSort />
         {this.state.reviewList.map((review, index) =>
         <ReviewTile
