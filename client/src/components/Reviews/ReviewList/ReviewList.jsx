@@ -11,9 +11,12 @@ class ReviewList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviewList : []
+      reviewList : [],
+      display: [],
+      reviewCount: 4
     }
     this.getReviews = this.getReviews.bind(this)
+    this.handleMoreReview = this.handleMoreReview.bind(this)
   }
 
   getReviews(id) {
@@ -27,7 +30,8 @@ class ReviewList extends React.Component {
       .then((data) => {
         //console.log(data.data.results),
         this.setState({
-          reviewList: data.data.results.slice(0, 2)
+          reviewList: data.data.results,
+          display: data.data.results.slice(0, 2)
         })
         // console.log("new state", this.state.reviewList)
       })
@@ -40,12 +44,25 @@ class ReviewList extends React.Component {
     this.getReviews(25192)
   }
 
+  handleMoreReview() {
+    console.log("did I click?")
+    var count = this.state.reviewCount
+    console.log(this.state.reviewList.length)
+    var display = this.state.reviewList.slice(0, count)
+    this.setState({
+      display: display,
+      reviewCount: count += 2
+    })
+
+
+  }
+
   render() {
     return (
       <div>
         <h1>Hello ReviewList</h1>
         <TotalSort />
-          {this.state.reviewList.map((review, index) =>
+          {this.state.display.map((review, index) =>
           <ReviewTile
             key = {index}
             review = {review}
@@ -53,7 +70,7 @@ class ReviewList extends React.Component {
         )}
         <h1>Buttons</h1>
         <div>
-          <button>
+          <button onClick={this.handleMoreReview}>
             More Review
           </button>
 
