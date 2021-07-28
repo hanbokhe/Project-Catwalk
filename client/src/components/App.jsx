@@ -7,12 +7,8 @@ import RelatedProduct from './RelatedProducts/RelatedProducts.jsx';
 const App = (props) => {
   return (
     <div>
-
-      {/* <Overview />
       <RelatedProduct/>
-      <QA/> */}
       <Reviews />
-
     </div>
   )
 }
