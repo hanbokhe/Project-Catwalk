@@ -13,15 +13,7 @@ class TotalSort extends React.Component {
       <div>
         <h1>Total Sort</h1>
         <b>{this.state.totalReview} reviews, sorted by relevance</b>
-        <div>
-          <button>
-            More Review
-          </button>
 
-          <button>
-            Add a review +
-          </button>
-        </div>
       </div>
     )
   }
