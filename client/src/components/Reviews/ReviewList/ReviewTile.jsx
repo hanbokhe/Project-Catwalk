@@ -40,13 +40,7 @@ class ReviewTile extends React.Component {
       <div>
         <h1> Review Tile</h1>
         <div>
-          <h1> star testing</h1>
-          {/* <div class="stars" style="--rating: 2.3;" aria-label="rating of the product" */}
-
-        </div>
-        <div>
           rating review: {this.state.starRating}
-
           <Stars rating={`${this.state.starRating * 20}%`} />
         </div>
         <div>
@@ -77,15 +71,7 @@ class ReviewTile extends React.Component {
         <div>
           Rating Helpfulness: {this.state.helpfulness}
         </div>
-        <div>
-          <button>
-            More Review
-          </button>
 
-          <button>
-            Add a review +
-          </button>
-        </div>
       </div>
 
     )

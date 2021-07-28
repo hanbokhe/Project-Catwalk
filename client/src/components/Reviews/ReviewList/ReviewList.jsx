@@ -27,7 +27,7 @@ class ReviewList extends React.Component {
       .then((data) => {
         //console.log(data.data.results),
         this.setState({
-          reviewList: data.data.results
+          reviewList: data.data.results.slice(0, 2)
         })
         // console.log("new state", this.state.reviewList)
       })
@@ -44,14 +44,26 @@ class ReviewList extends React.Component {
     return (
       <div>
         <h1>Hello ReviewList</h1>
-      <TotalSort />
-        {this.state.reviewList.map((review, index) =>
-        <ReviewTile
-          key = {index}
-          review = {review}
-        />
-      )}
-      <WriteReview />
+        <TotalSort />
+          {this.state.reviewList.map((review, index) =>
+          <ReviewTile
+            key = {index}
+            review = {review}
+          />
+        )}
+        <h1>Buttons</h1>
+        <div>
+          <button>
+            More Review
+          </button>
+
+          <button>
+            Add a review +
+          </button>
+        </div>
+
+        <WriteReview />
+
       </div>
     )
   }

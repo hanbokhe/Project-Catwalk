@@ -5,7 +5,6 @@ const Stars = styled.div`
   font-size: 25px;
   font-family: Times; // make sure ★ appears correctly
   line-height: 1;
-  //text-shadow: 0 0 0 #fff;
 
   &::before {
     content: "🐶🐶🐶🐶🐶";
