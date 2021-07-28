@@ -46,7 +46,6 @@ class ReviewTile extends React.Component {
         </div>
         <div>
           rating review: {this.state.starRating}
-          {console.log(`${this.state.starRating * 10}%`)}
 
           <Stars rating={`${this.state.starRating * 20}%`} />
         </div>
