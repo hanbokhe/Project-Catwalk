@@ -2,7 +2,9 @@ import React from 'react';
 import ReviewTile from './ReviewTile.jsx';
 import TotalSort from './TotalSort.jsx';
 import WriteReview from './WriteReview.jsx';
+import Stars from '../Styles.jsx';
 import axios from 'axios';
+
 
 
 class ReviewList extends React.Component {
@@ -40,7 +42,9 @@ class ReviewList extends React.Component {
 
   render() {
     return (
-      <div> Hello ReviewList
+      <div>
+        <h1>Hello ReviewList</h1>
+      <Stars rating = "90%" />
       <TotalSort />
         {this.state.reviewList.map((review, index) =>
         <ReviewTile
@@ -48,7 +52,6 @@ class ReviewList extends React.Component {
           review = {review}
         />
       )}
-
       <WriteReview />
       </div>
     )
