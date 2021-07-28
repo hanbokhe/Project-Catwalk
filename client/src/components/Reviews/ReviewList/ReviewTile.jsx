@@ -1,5 +1,6 @@
 import React from 'react';
 import Photo from './Photo.jsx';
+import Stars from '../Styles.jsx';
 
 class ReviewTile extends React.Component {
   constructor(props) {
@@ -45,6 +46,9 @@ class ReviewTile extends React.Component {
         </div>
         <div>
           rating review: {this.state.starRating}
+          {console.log(`${this.state.starRating * 10}%`)}
+
+          <Stars rating={`${this.state.starRating * 20}%`} />
         </div>
         <div>
           Date of review: {this.state.date}

@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 const Stars = styled.div`
   display: inline-block;
-  font-size: 60px;
+  font-size: 25px;
   font-family: Times; // make sure ★ appears correctly
   line-height: 1;
-  // text-shadow: 0 0 0 #fff;
+  //text-shadow: 0 0 0 #fff;
 
   &::before {
     content: "🐶🐶🐶🐶🐶";
