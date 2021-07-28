@@ -1,5 +1,6 @@
 import React from 'react';
 import Photo from './Photo.jsx';
+import Stars from '../Styles.jsx';
 
 class ReviewTile extends React.Component {
   constructor(props) {
@@ -18,7 +19,6 @@ class ReviewTile extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props),
 
     this.setState({
       starRating: this.props.review.rating,
@@ -40,12 +40,8 @@ class ReviewTile extends React.Component {
       <div>
         <h1> Review Tile</h1>
         <div>
-          <h1> star testing</h1>
-          {/* <div class="stars" style="--rating: 2.3;" aria-label="rating of the product" */}
-
-        </div>
-        <div>
           rating review: {this.state.starRating}
+          <Stars rating={`${this.state.starRating * 20}%`} />
         </div>
         <div>
           Date of review: {this.state.date}
@@ -75,15 +71,7 @@ class ReviewTile extends React.Component {
         <div>
           Rating Helpfulness: {this.state.helpfulness}
         </div>
-        <div>
-          <button>
-            More Review
-          </button>
 
-          <button>
-            Add a review +
-          </button>
-        </div>
       </div>
 
     )
