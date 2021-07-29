@@ -1,13 +1,12 @@
-import React, {useState, useEffect, createContext } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import Carousel from './Carousel.jsx';
 import axios from 'axios';
 
 const RelatedProduct = ({currentProductId}) => {
 
-  const [displayItems, setDisplay] = useState([]);
+  const [displayStyles, setDisplay] = useState([]);
   const [relatedProductIds, setRelated] = useState([]);
   const [loaded, setLoaded] = useState(false);
-
 
   const getStyles = async () => {
     try {
@@ -40,9 +39,10 @@ const RelatedProduct = ({currentProductId}) => {
 
   return (
     <div>
+      Related Products
       {
         loaded ?
-        <Carousel products={displayItems} />
+        <Carousel products={displayStyles} />
         : <div>Page Loading</div>
       }
     </div>

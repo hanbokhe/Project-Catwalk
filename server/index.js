@@ -79,15 +79,15 @@ app.get('/styles/:id', (req, res) => {
 })
 
 
-app.get('./GET/qa/questions', (req, res) => {
-  console.log('Q and A', req.body);
-  var {id} = req.body;
-  qa.getQuestions(id)
-    .then((data) => {
-      res.send(data); //.status.(404)
-    })
-    .catch((err) => {
-      res.send(err); //.status.(404)
-    })
-})
+// app.get('./GET/qa/questions', (req, res) => {
+//   console.log('Q and A', req.body);
+//   var {id} = req.body;
+//   qa.getQuestions(id)
+//     .then((data) => {
+//       res.send(data); //.status.(404)
+//     })
+//     .catch((err) => {
+//       res.send(err); //.status.(404)
+//     })
+// })
 
