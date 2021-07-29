@@ -4,7 +4,6 @@ import Photo from './Photo.jsx';
 import Stars from '../Styles.jsx';
 import axios from 'axios';
 import TOKEN from '../../../../../server/config.js';
-import PropTypes from 'prop-types'
 
 class ReviewTile extends React.Component {
   constructor(props) {
