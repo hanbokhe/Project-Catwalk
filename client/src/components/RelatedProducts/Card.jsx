@@ -3,26 +3,21 @@ import Details from './Details.jsx';
 import styled from 'styled-components';
 
 const Card_div = styled.div`
-height: 375px;
+height: 400px;
 width: 250px;
 display: inline-flex;
-align-items: center;
-justify-content: start;
 flex-direction: column;
 border: 1px solid gray;
 `
-const Img_div = styled.div`
-height: 300px;
+const Img_div = styled.img`
+height: 325px;
 width: 250px;
 overflow: hidden;
-`
-
-const Img = styled.img`
 object-fit: cover;
 `
 
 const Card = ({product}) => {
-  const [defaultItem, setDefault] = useState({});
+  const [defaultItem, setDefault] = useState(product.results[0]);
   const [photo, setPhoto] = useState(null);
   const [loaded, setLoaded] = useState(false);
 
@@ -37,7 +32,7 @@ const Card = ({product}) => {
 
   const getDefault = () => {
     for(var i = 0; i < product.results.length; i++) {
-      if(product.results[i]['default?']) {
+      if(product.results[i]['default?'] === true) {
         setDefault(product.results[i]);
       }
     }
@@ -58,17 +53,13 @@ const Card = ({product}) => {
         <>
         {
           photo ?
-          <Img_div>
-            <Img  src={photo}></Img>
-          </Img_div>
+          <Img_div src={photo}/>
           : null
         }
         </>
         <>
         {
-          defaultItem ?
-          <Details defaultOne={product.results[0]} />
-          : <Details defaultOne={defaultItem} />
+          <Details defaultOne={defaultItem} />
         }
         </>
       </Card_div>
