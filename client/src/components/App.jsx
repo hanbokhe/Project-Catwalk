@@ -5,11 +5,11 @@ import RelatedProduct from './RelatedProducts/RelatedProducts.jsx';
 import Reviews from './Reviews/Reviews.jsx';
 
 const App = (props) => {
-  const [currentProductId, setCurrentProduct] = useState(25192);
+  const [currentProductId, setCurrentProduct] = useState(25170);
   return (
     <div>
-      {/* <RelatedProduct currentProductId={currentProductId} /> */}
-      <Reviews currentProductId={currentProductId}/>
+      <RelatedProduct currentProductId={currentProductId} />
+      <Reviews />
     </div>
   )
 }
