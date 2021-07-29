@@ -4,3 +4,6 @@ bundle.js
 config.js
 
 package-lock.json
+
+data.json
+metaReview.json

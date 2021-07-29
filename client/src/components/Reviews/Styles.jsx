@@ -9,7 +9,7 @@ const Stars = styled.div`
   &::before {
     content: "🐶🐶🐶🐶🐶";
     letter-spacing: 3px;
-    background: linear-gradient(90deg, #000 ${props => props.rating}, #fff ${props => props.rating});
+    background: linear-gradient(90deg, #fc0 ${props => props.rating}, #000 ${props => props.rating});
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
