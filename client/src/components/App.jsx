@@ -8,8 +8,8 @@ const App = (props) => {
   const [currentProductId, setCurrentProduct] = useState(25192);
   return (
     <div>
-      <RelatedProduct currentProductId={currentProductId} />
-      <Reviews />
+      {/* <RelatedProduct currentProductId={currentProductId} /> */}
+      <Reviews currentProductId={currentProductId}/>
     </div>
   )
 }

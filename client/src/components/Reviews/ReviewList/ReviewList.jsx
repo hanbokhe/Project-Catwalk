@@ -39,6 +39,7 @@ class ReviewList extends React.Component {
   }
 
   componentDidMount() {
+    // console.log(this.props)
     this.getReviews(25192)
   }
 
