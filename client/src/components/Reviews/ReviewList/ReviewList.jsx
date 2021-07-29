@@ -2,7 +2,9 @@ import React from 'react';
 import ReviewTile from './ReviewTile.jsx';
 import TotalSort from './TotalSort.jsx';
 import WriteReview from './WriteReview.jsx';
+import Stars from '../Styles.jsx';
 import axios from 'axios';
+
 
 
 class ReviewList extends React.Component {
@@ -25,7 +27,7 @@ class ReviewList extends React.Component {
       .then((data) => {
         //console.log(data.data.results),
         this.setState({
-          reviewList: data.data.results
+          reviewList: data.data.results.slice(0, 2)
         })
         // console.log("new state", this.state.reviewList)
       })
@@ -40,16 +42,28 @@ class ReviewList extends React.Component {
 
   render() {
     return (
-      <div> Hello ReviewList
-      <TotalSort />
-        {this.state.reviewList.map((review, index) =>
-        <ReviewTile
-          key = {index}
-          review = {review}
-        />
-      )}
+      <div>
+        <h1>Hello ReviewList</h1>
+        <TotalSort />
+          {this.state.reviewList.map((review, index) =>
+          <ReviewTile
+            key = {index}
+            review = {review}
+          />
+        )}
+        <h1>Buttons</h1>
+        <div>
+          <button>
+            More Review
+          </button>
 
-      <WriteReview />
+          <button>
+            Add a review +
+          </button>
+        </div>
+
+        <WriteReview />
+
       </div>
     )
   }

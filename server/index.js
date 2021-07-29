@@ -38,7 +38,33 @@ app.get('/products', (req, res) => {
       })
 })
 
+app.get('/related/:id', (req, res) => {
+  //console.log('Related Products', req.params);
+  var {id} = req.params;
 
+  relatedProducts.getRelated(id)
+    .then(({data}) => {
+      //console.log(data);
+      res.status(200).send(data);
+    })
+    .catch((err) => {
+      res.status(404).send(err);
+    })
+})
+
+app.get('/styles/:id', (req, res) => {
+  //console.log('Related Products', req.params);
+
+  var {id} = req.params;
+  relatedProducts.getStyles(id)
+    .then(({data}) => {
+
+      res.status(200).send(data);
+    })
+    .catch((err) => {
+      res.status(404).send(err);
+    })
+})
 
 
 app.get('./GET/qa/questions', (req, res) => {
