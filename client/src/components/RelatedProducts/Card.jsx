@@ -3,11 +3,22 @@ import Details from './Details.jsx';
 import styled from 'styled-components';
 
 const Card_div = styled.div`
-width: 200px;
-display: flex;
+height: 375px;
+width: 250px;
+display: inline-flex;
+align-items: center;
+justify-content: start;
 flex-direction: column;
 border: 1px solid gray;
-justify-content: space-evenly;
+`
+const Img_div = styled.div`
+height: 300px;
+width: 250px;
+overflow: hidden;
+`
+
+const Img = styled.img`
+object-fit: cover;
 `
 
 const Card = ({product}) => {
@@ -47,7 +58,9 @@ const Card = ({product}) => {
         <>
         {
           photo ?
-          <img src={photo}></img>
+          <Img_div>
+            <Img  src={photo}></Img>
+          </Img_div>
           : null
         }
         </>
