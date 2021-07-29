@@ -1,10 +1,12 @@
 import React from 'react';
 import ReviewList from './ReviewList/ReviewList.jsx';
+import RatingBreakdown from './RatingBreakdown/RatingBreakdown.jsx';
 
-function Reviews() {
+function Reviews(props) {
   return (
     <div>
-      <ReviewList />
+      <RatingBreakdown />
+      <ReviewList currentProductId={props.currentProductId}/>
     </div>
   )
 }

@@ -4,11 +4,11 @@ import Card from './Card.jsx';
 import styled from 'styled-components';
 
 const Container = styled.div`
-width: 2000px;
-height: 400px;
+height: 410px;
 display: flex;
 flex-direction: row;
-align-items: start;
+align-items: center;
+justify-content: center;
 `
 
 const Carousel_div = styled.div`
