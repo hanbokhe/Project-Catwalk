@@ -6,7 +6,9 @@ class RatingBreakdown extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      avgRating: 1.5,
+      recommended: true,
+      characteristic: []
     }
   }
 }

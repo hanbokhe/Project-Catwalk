@@ -62,7 +62,7 @@ const Carousel = ({products}) => {
           updateIndex(activeIndex + 1)
 
         }}
-        disabled={relatedItemsList.length < 4 || idx === relatedItemsList.length-4}
+        disabled={products.length < 4 || idx === products.length-4}
         >&gt;
       </Indicator_button>
 
