@@ -1,8 +1,10 @@
+/* eslint-disable no-undef */
 import React from 'react';
 import Photo from './Photo.jsx';
 import Stars from '../Styles.jsx';
 import axios from 'axios';
-import TOKEN from '../../../../../server/config.js'
+import TOKEN from '../../../../../server/config.js';
+import PropTypes from 'prop-types'
 
 class ReviewTile extends React.Component {
   constructor(props) {
@@ -53,20 +55,19 @@ class ReviewTile extends React.Component {
   handleVoteYes() {
     if (!this.state.voted) {
       // var countVote = this.state.helpfulness
-      this.setState((state, props) => {return {
-        helpfulness: state.helpfulness + 1,
-        voted: true
-      }})
+      this.setState((state) => {
+        return {
+          helpfulness: state.helpfulness + 1,
+          voted: true
+        }
+      })
     }
-    var review_id = this.props.review.review_id
-    this.putHelpfullness(review_id)
+    this.putHelpfullness(this.props.review.review_id)
     return false
   }
 
   handleReport() {
     var review_id = this.props.review.review_id
-    console.log(this.props)
-    console.log(review_id)
     axios({
       method: 'put',
       url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/reviews/${review_id}/report`,
@@ -120,6 +121,7 @@ class ReviewTile extends React.Component {
 
     )
   }
+
 }
 
 export default ReviewTile;
