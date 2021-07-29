@@ -41,7 +41,7 @@ class ReviewList extends React.Component {
   }
 
   componentDidMount() {
-    this.getReviews(25192)
+    this.getReviews(25193)
   }
 
   handleMoreReview() {
