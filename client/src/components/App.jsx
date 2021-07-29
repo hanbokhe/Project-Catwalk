@@ -4,10 +4,8 @@ import RelatedProduct from './RelatedProducts/RelatedProducts.jsx';
 // import QA from './QA/QA.jsx';
 import Reviews from './Reviews/Reviews.jsx';
 
-//25167
-
-const App = () => {
-  const [currentProductId, setProductId] = useState(25192);
+const App = (props) => {
+  const [currentProductId, setCurrentProduct] = useState(25192);
   return (
     <div>
       <RelatedProduct currentProductId={currentProductId} />
@@ -17,3 +15,5 @@ const App = () => {
 }
 
 export default App;
+
+//25167
