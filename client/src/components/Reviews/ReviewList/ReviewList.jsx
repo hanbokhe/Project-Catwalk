@@ -2,9 +2,7 @@ import React from 'react';
 import ReviewTile from './ReviewTile.jsx';
 import TotalSort from './TotalSort.jsx';
 import WriteReview from './WriteReview.jsx';
-import Stars from '../Styles.jsx';
 import axios from 'axios';
-
 
 
 class ReviewList extends React.Component {
@@ -41,18 +39,18 @@ class ReviewList extends React.Component {
   }
 
   componentDidMount() {
-    this.getReviews(25193)
+    this.getReviews(25192)
   }
 
   handleMoreReview() {
     var count = this.state.reviewCount
     var display = this.state.reviewList.slice(0, count)
-    this.setState({
-      display: display,
-      reviewCount: count += 2
+    this.setState((state) => {
+      return {
+        display: display,
+        reviewCount: state.reviewCount + 2
+      }
     })
-
-
   }
 
   render() {
