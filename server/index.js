@@ -17,7 +17,8 @@ app.listen(PORT, () => {
 })
 
 app.get('/reviews', (req, res) => {
-  reviews.getReviews(req.query.product_id)
+  var id = req.query.product_id
+  reviews.getReviews(id)
       .then((data) => {
         res.status(200).send(data.data);
       })
@@ -26,17 +27,28 @@ app.get('/reviews', (req, res) => {
       })
 })
 
-// app.get('/products', (req, res) => {
-//   overview.getProducts()
-//       .then((data) => {
-//           // console.log(data);
-//           res.status(200).send(data.data);
-//       })
-//       .catch((err) => {
-//         console.log(err)
-//           res.status(404).send(err);
-//       })
-// })
+app.get('/reviews/meta', (req, res) => {
+  var id = req.query.product_id
+  reviews.getMetaReviews(id)
+    .then((data) => {
+      res.status(200).send(data.data);
+    })
+    .catch((err) => {
+      res.status(404).send(err)
+    })
+})
+
+app.get('/products', (req, res) => {
+  overview.getProducts()
+      .then((data) => {
+          // console.log(data);
+          res.status(200).send(data.data);
+      })
+      .catch((err) => {
+        console.log(err)
+          res.status(404).send(err);
+      })
+})
 
 app.get('/related/:id', (req, res) => {
   //console.log('Related Products', req.params);
