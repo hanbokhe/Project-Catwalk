@@ -1,4 +1,5 @@
 import React from 'react';
+import Stars from '../Styles.jsx'
 
 class WriteReview extends React.Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class WriteReview extends React.Component {
         <h1>Write Review</h1>
         <div>
           overall rating {this.state.overallRating}
+
         </div>
         <div>
           recommended {this.state.recommended}
