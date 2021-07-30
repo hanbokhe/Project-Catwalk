@@ -10,7 +10,7 @@ class RatingBreakdown extends React.Component {
       product_id: 25193,
       average: 0,
       ratings: {},
-      recommended: {},
+      recommended: 0,
       characteristic: {}
     }
     this.getMetaReviews = this.getMetaReviews.bind(this)
@@ -39,13 +39,19 @@ class RatingBreakdown extends React.Component {
       count += parseInt(ratings[key])
       total += (parseInt(key) * ratings[key])
     }
+    console.log(ratings)
+    console.log(data.data.recommended)
+    var countTrue = parseInt(data.data.recommended.true)
+    var countFalse = parseInt(data.data.recommended.false)
+
     this.setState({
-      ratings: data.data.ratings,
-      recommended: data.data.recommended,
+      recommended: Math.round(countTrue/(countFalse+countTrue) * 100),
       characteristic: data.data.characteristic,
-      average: Math.round(total/count * 10)/ 10
+      average: Math.round(total/count * 10)/ 10,
+      count: count
     })
   }
+
 
   componentDidMount() {
     this.getMetaReviews(25193, this.getAvg)
@@ -55,7 +61,8 @@ class RatingBreakdown extends React.Component {
     return (
       <div>
         <h1>RatingBreakdown</h1>
-        {console.log(this.state)}
+        <h2>recommended: {this.state.recommended}% </h2>
+        <h2>Total Rating: {this.state.count}</h2>
         <h2>avg rating: {this.state.average}</h2>
 
 
