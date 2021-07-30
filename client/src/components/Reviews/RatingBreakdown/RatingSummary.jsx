@@ -4,7 +4,7 @@ import axios from 'axios';
 const RatingSummary = ({ratings}) => {
   return (
     <div>
-      <h2>
+      <h2>{console.log(ratings)}
         average rating: {ratings}
       </h2>
     </div>
