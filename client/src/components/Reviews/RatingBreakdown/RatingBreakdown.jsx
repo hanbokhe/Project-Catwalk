@@ -56,7 +56,9 @@ class RatingBreakdown extends React.Component {
       <div>
         <h1>RatingBreakdown</h1>
         {console.log(this.state)}
-        <RatingSummary ratings={this.state.average}/>
+        <h2>avg rating: {this.state.average}</h2>
+
+
       </div>
     )
   }
