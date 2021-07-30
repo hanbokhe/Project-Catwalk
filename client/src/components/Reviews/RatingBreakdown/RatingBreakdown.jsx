@@ -26,17 +26,13 @@ class RatingBreakdown extends React.Component {
       }
     })
     .then((data) => {
-      this.setState({
-        ratings: data.data.ratings,
-        recommended: data.data.recommended,
-        characteristic: data.data.characteristic
-      }, callback)
+      callback(data)
     })
     .catch((err) => console.log(err))
   }
 
-  getAvg() {
-    var ratings = this.state.ratings
+  getAvg(data) {
+    var ratings = data.data.ratings
     var count = 0
     var total = 0
     for(var key in ratings) {
@@ -44,6 +40,9 @@ class RatingBreakdown extends React.Component {
       total += (parseInt(key) * ratings[key])
     }
     this.setState({
+      ratings: data.data.ratings,
+      recommended: data.data.recommended,
+      characteristic: data.data.characteristic,
       average: Math.round(total/count * 10)/ 10
     })
   }
@@ -56,6 +55,7 @@ class RatingBreakdown extends React.Component {
     return (
       <div>
         <h1>RatingBreakdown</h1>
+        {console.log(this.state)}
         <RatingSummary ratings={this.state.average}/>
       </div>
     )
