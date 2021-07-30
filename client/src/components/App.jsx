@@ -17,7 +17,7 @@ const App = (props) => {
   const [currentProductId, setCurrentProduct] = useState(25170);
   return (
     <Container>
-      <RelatedProduct currentProductId={currentProductId} />
+      {/* <RelatedProduct currentProductId={currentProductId} /> */}
       <Reviews />
     </Container>
   )
