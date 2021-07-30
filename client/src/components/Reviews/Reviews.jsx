@@ -7,15 +7,15 @@ const Container = styled.div`
 width: 70%;
 display: flex;
 flex-direction: column;
-`
+`;
 
-function Reviews(props) {
+var Reviews = function(props) {
   return (
     <Container>
       <RatingBreakdown />
       <ReviewList currentProductId={props.currentProductId}/>
     </Container>
-  )
-}
+  );
+};
 
 export default Reviews;

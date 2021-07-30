@@ -8,7 +8,7 @@ const RatingSummary = ({ratings}) => {
         average rating: {ratings}
       </h2>
     </div>
-  )
-}
+  );
+};
 
 export default RatingSummary;
