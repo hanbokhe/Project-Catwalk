@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React from 'react';
 import axios from 'axios';
 import Stars from '../Styles.jsx';
@@ -12,9 +13,9 @@ class RatingBreakdown extends React.Component {
       ratings: {},
       recommended: 0,
       characteristic: {}
-    }
-    this.getMetaReviews = this.getMetaReviews.bind(this)
-    this.getAvg = this.getAvg.bind(this)
+    };
+    this.getMetaReviews = this.getMetaReviews.bind(this);
+    this.getAvg = this.getAvg.bind(this);
   }
 
   getMetaReviews(product_id, callback) {
@@ -25,36 +26,35 @@ class RatingBreakdown extends React.Component {
         product_id: product_id
       }
     })
-    .then((data) => {
-      callback(data)
-    })
-    .catch((err) => console.log(err))
+      .then((data) => {
+        callback(data);
+      })
+      .catch((err) => console.log(err));
   }
 
   getAvg(data) {
-    var ratings = data.data.ratings
-    var count = 0
-    var total = 0
-    for(var key in ratings) {
-      count += parseInt(ratings[key])
-      total += (parseInt(key) * ratings[key])
+    var ratings = data.data.ratings;
+    var count = 0;
+    var total = 0;
+    for (var key in ratings) {
+      count += parseInt(ratings[key]);
+      total += (parseInt(key) * ratings[key]);
     }
-    console.log(ratings)
-    console.log(data.data.recommended)
-    var countTrue = parseInt(data.data.recommended.true)
-    var countFalse = parseInt(data.data.recommended.false)
+
+    var countTrue = parseInt(data.data.recommended.true);
+    var countFalse = parseInt(data.data.recommended.false);
 
     this.setState({
-      recommended: Math.round(countTrue/(countFalse+countTrue) * 100),
+      recommended: Math.round(countTrue / (countFalse + countTrue) * 100),
       characteristic: data.data.characteristic,
-      average: Math.round(total/count * 10)/ 10,
+      average: Math.round(total / count * 10) / 10,
       count: count
-    })
+    });
   }
 
 
   componentDidMount() {
-    this.getMetaReviews(25193, this.getAvg)
+    this.getMetaReviews(25193, this.getAvg);
   }
 
   render() {
@@ -64,10 +64,8 @@ class RatingBreakdown extends React.Component {
         <h2>recommended: {this.state.recommended}% </h2>
         <h2>Total Rating: {this.state.count}</h2>
         <h2>avg rating: {this.state.average}</h2>
-
-
       </div>
-    )
+    );
   }
 }
 
