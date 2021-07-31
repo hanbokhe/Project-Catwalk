@@ -21,6 +21,7 @@ font-size: 15px;
 display: flex;
 flex-direction: column;
 padding-top: 12px;
+padding-bottom: 12px;
 `;
 
 const RatingBreakdown_div = styled.div `
@@ -59,20 +60,29 @@ class RatingBreakdown extends React.Component {
     var ratings = data.data.ratings;
     var count = 0;
     var total = 0;
+    var countTrue = parseInt(data.data.recommended.true);
+    var countFalse = parseInt(data.data.recommended.false);
+    var breakdownArray = [];
+
     for (var key in ratings) {
       count += parseInt(ratings[key]);
       total += (parseInt(key) * ratings[key]);
     }
 
-    var countTrue = parseInt(data.data.recommended.true);
-    var countFalse = parseInt(data.data.recommended.false);
+    for (var i = 1; i < 6; i++) {
+      if (i in ratings) {
+        breakdownArray.push([i, ratings[i], Math.round(parseInt(ratings[i]) / count * 100)]);
+      } else {
+        breakdownArray.push([i, '0', 0]);
+      }
+    }
 
     this.setState({
-      ratings: data.data.ratings,
       recommended: Math.round(countTrue / (countFalse + countTrue) * 100),
       characteristics: data.data.characteristics,
       average: Math.round(total / count * 10) / 10,
-      count: count
+      count: count,
+      breakdownArray: breakdownArray
     });
   }
 
@@ -83,6 +93,7 @@ class RatingBreakdown extends React.Component {
 
   render() {
     return (
+
       <RatingBreakdown_div>
         <AvgContainer>
           <Avg_div>
@@ -96,10 +107,7 @@ class RatingBreakdown extends React.Component {
             {this.state.count} total reviews, {this.state.recommended}% reviews recommended this products
           </div>
         </Recommended_div>
-
-
-
-        <Breakdown breakdown={this.state}/>
+        <Breakdown breakdowns={this.state.breakdownArray}/>
         <Characteristics characteristics={this.state.characteristics} />
       </RatingBreakdown_div>
     );
