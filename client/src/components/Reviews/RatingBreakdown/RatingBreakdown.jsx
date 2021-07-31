@@ -2,7 +2,8 @@
 import React from 'react';
 import axios from 'axios';
 import Stars from '../Styles.jsx';
-import RatingSummary from './RatingSummary.jsx';
+import Breakdown from './Breakdown.jsx';
+import Characteristics from './Characteristics.jsx';
 
 class RatingBreakdown extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class RatingBreakdown extends React.Component {
       average: 0,
       ratings: {},
       recommended: 0,
-      characteristic: {}
+      characteristics: {}
     };
     this.getMetaReviews = this.getMetaReviews.bind(this);
     this.getAvg = this.getAvg.bind(this);
@@ -45,8 +46,9 @@ class RatingBreakdown extends React.Component {
     var countFalse = parseInt(data.data.recommended.false);
 
     this.setState({
+      ratings: data.data.ratings,
       recommended: Math.round(countTrue / (countFalse + countTrue) * 100),
-      characteristic: data.data.characteristic,
+      characteristics: data.data.characteristics,
       average: Math.round(total / count * 10) / 10,
       count: count
     });
@@ -64,6 +66,8 @@ class RatingBreakdown extends React.Component {
         <h2>recommended: {this.state.recommended}% </h2>
         <h2>Total Rating: {this.state.count}</h2>
         <h2>avg rating: {this.state.average}</h2>
+        <Breakdown ratings={this.state.ratings}/>
+        <Characteristics characteristics={this.state.characteristics} />
       </div>
     );
   }
