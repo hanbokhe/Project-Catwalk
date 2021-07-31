@@ -4,6 +4,28 @@ import axios from 'axios';
 import Stars from '../Styles.jsx';
 import Breakdown from './Breakdown.jsx';
 import Characteristics from './Characteristics.jsx';
+import styled from 'styled-components';
+
+const Avg_div = styled.div`
+font-size: 60px;
+front-weight: bold;
+`;
+
+const AvgContainer = styled.div`
+display: flex;
+flex-direction: row;
+`;
+
+const Recommended_div = styled.div`
+font-size: 15px;
+display: flex;
+flex-direction: column;
+padding-top: 12px;
+`;
+
+const RatingBreakdown_div = styled.div `
+width: 80%;
+`;
 
 class RatingBreakdown extends React.Component {
   constructor(props) {
@@ -61,14 +83,25 @@ class RatingBreakdown extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>RatingBreakdown</h1>
-        <h2>recommended: {this.state.recommended}% </h2>
-        <h2>Total Rating: {this.state.count}</h2>
-        <h2>avg rating: {this.state.average}</h2>
-        <Breakdown ratings={this.state.ratings}/>
+      <RatingBreakdown_div>
+        <AvgContainer>
+          <Avg_div>
+            {this.state.average}
+          </Avg_div>
+          <Stars rating={`${this.state.average * 20}%`} />
+        </AvgContainer>
+
+        <Recommended_div>
+          <div>
+            {this.state.count} total reviews, {this.state.recommended}% reviews recommended this products
+          </div>
+        </Recommended_div>
+
+
+
+        <Breakdown breakdown={this.state}/>
         <Characteristics characteristics={this.state.characteristics} />
-      </div>
+      </RatingBreakdown_div>
     );
   }
 }
