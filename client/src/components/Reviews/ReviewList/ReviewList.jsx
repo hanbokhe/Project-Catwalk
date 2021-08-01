@@ -4,6 +4,11 @@ import ReviewTile from './ReviewTile.jsx';
 import TotalSort from './TotalSort.jsx';
 import WriteReview from './WriteReview.jsx';
 import axios from 'axios';
+import styled from 'styled-components';
+
+const ReviewList_div = styled.div `
+padding-left: 20px;
+`;
 
 
 class ReviewList extends React.Component {
@@ -59,7 +64,7 @@ class ReviewList extends React.Component {
     var toRender = [];
     if (this.state.reviewList.length) {
       toRender = (
-        <div>
+        <ReviewList_div>
           <h1>Hello ReviewList</h1>
           <TotalSort />
           {this.state.display.map((review, index) =>
@@ -81,11 +86,11 @@ class ReviewList extends React.Component {
 
           <WriteReview />
 
-        </div>
+        </ReviewList_div>
       );
     } else {
       toRender = (
-        <div>
+        <ReviewList_div>
           <h1>Hello ReviewList</h1>
           <TotalSort />
           {this.state.display.map((review, index) =>
@@ -98,7 +103,7 @@ class ReviewList extends React.Component {
 
           <WriteReview />
 
-        </div>
+        </ReviewList_div>
       );
     }
     return toRender;

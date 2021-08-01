@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-undef */
 import React from 'react';
 import Photo from './Photo.jsx';
@@ -12,15 +13,15 @@ class ReviewTile extends React.Component {
       id: 0,
       starRating: 4,
       date: 0,
-      reviewSummary: "abc",
-      reviewBody: "def",
+      reviewSummary: 'abc',
+      reviewBody: 'def',
       photos: [],
       recommend: true,
-      reviwerName: "username",
-      response: "internal response team",
+      reviwerName: 'username',
+      response: 'internal response team',
       helpfulness: 0,
       voted: false
-    }
+    };
     this.handleVoteYes = this.handleVoteYes.bind(this);
     this.putHelpfullness = this.putHelpfullness.bind(this);
     this.handleReport = this.handleReport.bind(this);
@@ -38,7 +39,7 @@ class ReviewTile extends React.Component {
       reviwerName: this.props.review.reviewer_name,
       response: this.props.review.response,
       helpfulness: this.props.review.helpfulness
-    })
+    });
   }
 
   putHelpfullness(id) {
@@ -48,7 +49,7 @@ class ReviewTile extends React.Component {
       headers: {
         'Authorization': TOKEN.TOKEN
       }
-    })
+    });
   }
 
   handleVoteYes() {
@@ -58,22 +59,22 @@ class ReviewTile extends React.Component {
         return {
           helpfulness: state.helpfulness + 1,
           voted: true
-        }
-      })
+        };
+      });
     }
-    this.putHelpfullness(this.props.review.review_id)
-    return false
+    this.putHelpfullness(this.props.review.review_id);
+    return false;
   }
 
   handleReport() {
-    var review_id = this.props.review.review_id
+    var review_id = this.props.review.review_id;
     axios({
       method: 'put',
       url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/reviews/${review_id}/report`,
       headers: {
         'Authorization': TOKEN.TOKEN
       }
-    })
+    });
   }
 
   render() {
@@ -94,14 +95,14 @@ class ReviewTile extends React.Component {
           Review Body: {this.state.reviewBody}
         </div>
         <div>
-          Review Photo: {this.state.photos.map((photo,index) => <Photo
-              key={index}
-              photo={photo}
-              />
+          Review Photo: {this.state.photos.map((photo, index) => <Photo
+            key={index}
+            photo={photo}
+          />
           )}
         </div>
         <div>
-          Recommend: {this.state.recommend ? "yes" : "no"}
+          Recommend: {this.state.recommend ? 'yes' : 'no'}
         </div>
         <div>
           Reviewer name: {this.state.reviwerName}
@@ -118,7 +119,7 @@ class ReviewTile extends React.Component {
 
       </div>
 
-    )
+    );
   }
 
 }

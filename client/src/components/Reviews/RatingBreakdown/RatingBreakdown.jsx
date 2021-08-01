@@ -5,6 +5,7 @@ import Stars from '../Styles.jsx';
 import Breakdown from './Breakdown.jsx';
 import Characteristics from './Characteristics.jsx';
 import styled from 'styled-components';
+import FactorBar from './FactorBar.jsx';
 
 const Avg_div = styled.div`
 font-size: 60px;
@@ -93,7 +94,6 @@ class RatingBreakdown extends React.Component {
 
   render() {
     return (
-
       <RatingBreakdown_div>
         <AvgContainer>
           <Avg_div>
@@ -109,6 +109,7 @@ class RatingBreakdown extends React.Component {
         </Recommended_div>
         <Breakdown breakdowns={this.state.breakdownArray}/>
         <Characteristics characteristics={this.state.characteristics} />
+
       </RatingBreakdown_div>
     );
   }
