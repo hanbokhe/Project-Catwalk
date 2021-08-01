@@ -38,11 +38,12 @@ app.get('/reviews/meta', (req, res) => {
     })
 })
 
-app.get('/products', (req, res) => {
-  overview.getProducts()
-      .then((data) => {
-          // console.log(data);
-          res.status(200).send(data.data);
+app.get('/products/:id', (req, res) => {
+  var {id} = req.params;
+
+  relatedProducts.getProducts(id)
+      .then(({data}) => {
+          res.status(200).send(data);
       })
       .catch((err) => {
         console.log(err)
@@ -66,8 +67,8 @@ app.get('/related/:id', (req, res) => {
 
 app.get('/styles/:id', (req, res) => {
   //console.log('Related Products', req.params);
-
   var {id} = req.params;
+
   relatedProducts.getStyles(id)
     .then(({data}) => {
 
