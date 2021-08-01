@@ -97,21 +97,6 @@ const marks = {
   ]
 };
 
-// const marks = [
-//   {
-//     value: 0,
-//     label: 'Too small'
-//   },
-//   {
-//     value: 50,
-//     label: 'Perfect'
-//   },
-//   {
-//     value: 100,
-//     label: 'Too wide'
-//   }
-// ];
-
 const StyleSlider = withStyles({
   root: {
     color: 'transparent'
