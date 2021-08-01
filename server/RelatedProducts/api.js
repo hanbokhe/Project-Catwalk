@@ -27,7 +27,20 @@ var getStyles = (id) => {
   return axios(options);
 }
 
+const getProducts = (id) => {
+  var options = {
+    method: 'GET',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${id}`,
+    headers: {
+      'Authorization': `${TOKEN}`
+    }
+  }
+    return axios(options);
+}
+
+
 module.exports = {
   getRelated,
-  getStyles
+  getStyles,
+  getProducts
 }
