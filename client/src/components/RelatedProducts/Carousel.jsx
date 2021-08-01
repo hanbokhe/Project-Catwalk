@@ -65,17 +65,6 @@ const Carousel = ({productInfo, isOutfit, addOutfit}) => {
     setActiveIndex(newIndex);
   }
 
-  const populateOutfit = () => (
-     productInfo.length === 0 && isOutfit ?
-      <BlankCard>
-        <div> + </div>
-        <div>Add To Outfit</div>
-      </BlankCard>
-      : productInfo.map( ({style, product}) => (
-          <Card product={product} style={style} isOutfit={isOutfit} key={product.product_id} />
-      ))
-  )
-
   return (
     <Container>
       <Arrow_button
@@ -87,7 +76,15 @@ const Carousel = ({productInfo, isOutfit, addOutfit}) => {
       </Arrow_button>
       <Carousel_div>
         <Inner_div style={{transform: `translateX(-${activeIndex * 25}%)`}}>
-          { populateOutfit() }
+          { productInfo.length === 0 && isOutfit ?
+            <BlankCard>
+              <div> + </div>
+              <div>Add To Outfit</div>
+            </BlankCard>
+            : productInfo.map( ({style, product}) => (
+                <Card product={product} style={style} isOutfit={isOutfit} key={product.product_id} />
+            ))
+          }
         </Inner_div>
       </Carousel_div>
       <Arrow_button
