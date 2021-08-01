@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Bar_container = styled.div `
-width: 65%;
+width: 175px;
 background-color: #f1f1f1;
 text-align: center;
 color: black;
-height: 10px;
+height: 13px;
 `;
 
 const OneBar_container = styled.div `
@@ -18,16 +18,18 @@ padding-bottom: 8px;
 
 const SideBar_div = styled.div `
 padding-right: 8px;
+font-size: 18px;
 `;
 
 const RightBar_div = styled.div `
 padding-left: 8px;
+font-size: 18px;
 `;
 
 var Bar = ({breakdown}) => {
   const Bar_div = styled.div `
   width: ${breakdown[2]}%;
-  height: 10px;
+  height: 14px;
   background-color: #04AA6D
   `;
   return (

@@ -18,15 +18,13 @@ flex-direction: row;
 `;
 
 const Recommended_div = styled.div`
-font-size: 15px;
-display: flex;
-flex-direction: column;
+font-size: 17px;
 padding-top: 12px;
 padding-bottom: 12px;
 `;
 
 const RatingBreakdown_div = styled.div `
-width: 80%;
+width: 400px;
 `;
 
 class RatingBreakdown extends React.Component {
