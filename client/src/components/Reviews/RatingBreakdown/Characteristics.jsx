@@ -1,9 +1,10 @@
+/* eslint-disable camelcase */
 import React from 'react';
 import FactorBar from './FactorBar.jsx';
 import styled from 'styled-components';
 
 const Chars_div = styled.div`
-padding-top: 30px;
+padding-top: 25px;
 `;
 
 const FactorBar_Containter = styled.div`

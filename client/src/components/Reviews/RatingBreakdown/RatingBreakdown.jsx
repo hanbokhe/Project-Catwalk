@@ -9,7 +9,7 @@ import FactorBar from './FactorBar.jsx';
 
 const Avg_div = styled.div`
 font-size: 60px;
-front-weight: bold;
+font-weight: bold;
 `;
 
 const AvgContainer = styled.div`
@@ -18,7 +18,7 @@ flex-direction: row;
 `;
 
 const Recommended_div = styled.div`
-font-size: 17px;
+font-size: 18px;
 padding-top: 12px;
 padding-bottom: 12px;
 `;

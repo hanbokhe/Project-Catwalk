@@ -5,6 +5,46 @@ import Photo from './Photo.jsx';
 import Stars from '../Styles.jsx';
 import axios from 'axios';
 import TOKEN from '../../../../../server/config.js';
+import styled from 'styled-components';
+import moment from 'moment';
+
+const ReviewTile_Container = styled.div `
+display:flex;
+flex-direction: column;
+gap: 12px;
+`;
+const Start_Info_Container = styled.div`
+padding-top: 30px;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-between
+`;
+
+const Username_Date_Container = styled.div`
+color: #777777;
+`;
+
+const Summary_div = styled.div`
+font-weight: bold;
+font-size: 26px;
+`;
+
+const ReviewBody_div = styled.div`
+font-size: 18px;
+`;
+
+const Recommend_div = styled.div`
+
+`;
+
+const Response_div = styled.div`
+
+`;
+
+const helpful_div = styled.div`
+
+`;
 
 class ReviewTile extends React.Component {
   constructor(props) {
@@ -78,22 +118,26 @@ class ReviewTile extends React.Component {
   }
 
   render() {
+    var dateStr = this.state.date;
+    var formattedDate = moment(dateStr).format('MMM DD, YYYY');
     return (
-      <div>
-        <h1> Review Tile</h1>
-        <div>
-          rating review: {this.state.starRating}
+      <ReviewTile_Container>
+        <Start_Info_Container>
           <Stars rating={`${this.state.starRating * 20}%`} />
-        </div>
-        <div>
-          Date of review: {this.state.date}
-        </div>
-        <div>
-          Review Summary: {this.state.reviewSummary}
-        </div>
-        <div>
-          Review Body: {this.state.reviewBody}
-        </div>
+
+          <Username_Date_Container>
+            <div>{this.state.reviwerName}, {formattedDate}</div>
+          </Username_Date_Container>
+        </Start_Info_Container>
+
+        <Summary_div>
+          {this.state.reviewSummary}
+        </Summary_div>
+
+        <ReviewBody_div>
+          {this.state.reviewBody}
+        </ReviewBody_div>
+
         <div>
           Review Photo: {this.state.photos.map((photo, index) => <Photo
             key={index}
@@ -104,9 +148,7 @@ class ReviewTile extends React.Component {
         <div>
           Recommend: {this.state.recommend ? 'yes' : 'no'}
         </div>
-        <div>
-          Reviewer name: {this.state.reviwerName}
-        </div>
+
         <div>
           Response to Review: {this.state.response}
         </div>
@@ -117,7 +159,7 @@ class ReviewTile extends React.Component {
           </div>
         </div>
 
-      </div>
+      </ReviewTile_Container>
 
     );
   }
