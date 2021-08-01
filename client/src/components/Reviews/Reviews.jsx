@@ -4,16 +4,25 @@ import RatingBreakdown from './RatingBreakdown/RatingBreakdown.jsx';
 import styled from 'styled-components';
 
 const Container = styled.div`
-width: 70%;
+width: 1010px;
 display: flex;
 flex-direction: column;
 `;
+const ReViewsContainer = styled.div`
+display: flex;
+flex-direction: row;
+flex-wrap: row;
+justify-content: space-between;
+`;
 
-var Reviews = function(props) {
+var Reviews = (props) => {
   return (
     <Container>
-      <RatingBreakdown />
-      <ReviewList currentProductId={props.currentProductId}/>
+      <p>RATING & REVIEWS</p>
+      <ReViewsContainer>
+        <RatingBreakdown />
+        <ReviewList currentProductId={props.currentProductId}/>
+      </ReViewsContainer>
     </Container>
   );
 };

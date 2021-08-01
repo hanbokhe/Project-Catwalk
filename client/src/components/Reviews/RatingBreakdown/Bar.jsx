@@ -25,7 +25,6 @@ padding-left: 8px;
 `;
 
 var Bar = ({breakdown}) => {
-  { console.log(breakdown); }
   const Bar_div = styled.div `
   width: ${breakdown[2]}%;
   height: 10px;

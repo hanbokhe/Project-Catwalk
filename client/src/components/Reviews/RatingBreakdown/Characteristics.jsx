@@ -1,31 +1,24 @@
 import React from 'react';
+import FactorBar from './FactorBar.jsx';
+import styled from 'styled-components';
 
-//Size, Width, Comfort, Quality, Length, and Fit
+const Chars_div = styled.div`
+padding-top: 30px;
+`;
+
 var Characteristics = ({characteristics}) => {
+
+  var charArray = Object.entries(characteristics);
+  console.log('charArray', charArray);
   return (
-    <div>
-      <div>
-        Size: characteristics.
-      </div>
-
-      <div>
-
-      </div>
-
-      <div>
-
-      </div>
-
-      <div>
-
-      </div>
-
-      <div>
-
-      </div>
-
-    </div>
-
+    <Chars_div>
+      {charArray.map((char, index) =>
+        <FactorBar
+          index={index}
+          characteristic={char}
+        />
+      )}
+    </Chars_div>
   );
 };
 
