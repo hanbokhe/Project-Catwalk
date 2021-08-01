@@ -1,19 +1,17 @@
 import React from 'react';
+import Question from './Question.jsx';
+import styled from 'styled-components';
 
-class QuestionsList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
 
-    };
-    console.log(this.props.questionData)
-  }
 
-  render() {
-    return (
-    <Question />
-    )
-  }
+const QuestionsList = ({questions}) => {
+  return (
+    <>
+      { questions.map(question => (
+        <Question question={question} key={question.question_id}/>
+      ))}
+    </>
+  )
 }
 
 export default QuestionsList;
