@@ -10,13 +10,20 @@ width: 100%;
 display: flex;
 flex-direction: column;
 align-items: center;
-border: solid 1px;
+justify-content: start;
+font-family: Arial, Helvetica, sans-serif;
+`
+const Img = styled.img`
+width: 65%;
+object-fit: scale-down;
 `
 
+
 const App = (props) => {
-  const [currentProductId, setCurrentProduct] = useState(25170);
+  const [currentProductId, setCurrentProduct] = useState(25171);
   return (
     <Container>
+      <Img src={`./Overview.jpg`}/>
       <RelatedProduct currentProductId={currentProductId} />
       <Reviews />
     </Container>
@@ -26,3 +33,4 @@ const App = (props) => {
 export default App;
 
 //25167
+//25170
