@@ -7,7 +7,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 
 const ReviewList_div = styled.div `
-padding-left: 20px;
+padding-left: 100px;
 `;
 
 

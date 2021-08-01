@@ -6,18 +6,22 @@ const Chars_div = styled.div`
 padding-top: 30px;
 `;
 
+const FactorBar_Containter = styled.div`
+padding-bottom: 15px;
+`;
 var Characteristics = ({characteristics}) => {
 
   var charArray = Object.entries(characteristics);
-  console.log('charArray', charArray);
   return (
     <Chars_div>
-      {charArray.map((char, index) =>
-        <FactorBar
-          index={index}
-          characteristic={char}
-        />
-      )}
+      <FactorBar_Containter>
+        {charArray.map((char, index) =>
+          <FactorBar
+            key = {index}
+            characteristic = {char}
+          />
+        )}
+      </FactorBar_Containter>
     </Chars_div>
   );
 };
