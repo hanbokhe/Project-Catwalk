@@ -1,25 +1,34 @@
-import React from 'react';import React from 'react';
+import React from 'react';
 import Answer from "./Answer.jsx";
+import styled from 'styled-components';
 
-class AnswersList extends React.Component {
-  constructor() {
-    super();
-    this.state = {
+const A_container = styled.div`
+width: 100%;
+background-color: white;
+`
 
-    }
-  }
+const MoreA = styled.button`
+background-color: transparent;
+padding-left: 10px;
+font-weight: bold;
+font-size: 12px;
+border: none;
+`
 
-  render() {
-    return (
-      <div>
-        <Answer />
-        helpful button -
-        report button -
-        load more answers
-      </div>
+const AnswersList = ({answers}) => {
 
-    )
-  }
+  return (
+    <A_container>
+      {answers.map(answer => (
+          <Answer answer={answer}/>
+        ))
+      }
+      { answers.length > 4 ?
+        <MoreA>load more answers</MoreA>
+      : null
+      }
+    </A_container>
+  )
 }
 
 export default AnswersList;

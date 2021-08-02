@@ -2,7 +2,6 @@ const express = require('express');
 const axios = require('axios');
 // const overview = require('./Overview/api.js');
 const relatedProducts = require('./RelatedProducts/api.js');
-
 const qa = require('./QA/api.js');
 const reviews = require('./Reviews/api.js');
 
@@ -80,15 +79,16 @@ app.get('/styles/:id', (req, res) => {
 })
 
 
-// app.get('./GET/qa/questions', (req, res) => {
-//   console.log('Q and A', req.body);
-//   var {id} = req.body;
-//   qa.getQuestions(id)
-//     .then((data) => {
-//       res.send(data); //.status.(404)
-//     })
-//     .catch((err) => {
-//       res.send(err); //.status.(404)
-//     })
-// })
+app.get('/qa/questions/:id', (req, res) => {
+  var {id} = req.params;
+  console.log(id);
+  qa.getQuestions(id)
+    .then(({data}) => {
+      res.status(200).send(data);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(404).send(err);
+    })
+})
 
