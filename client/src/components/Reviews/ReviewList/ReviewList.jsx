@@ -1,20 +1,26 @@
+/* eslint-disable camelcase */
 import React from 'react';
 import ReviewTile from './ReviewTile.jsx';
 import TotalSort from './TotalSort.jsx';
 import WriteReview from './WriteReview.jsx';
 import axios from 'axios';
+import styled from 'styled-components';
+
+const ReviewList_div = styled.div `
+padding-left: 100px;
+`;
 
 
 class ReviewList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviewList : [],
+      reviewList: [],
       display: [],
       reviewCount: 4
-    }
-    this.getReviews = this.getReviews.bind(this)
-    this.handleMoreReview = this.handleMoreReview.bind(this)
+    };
+    this.getReviews = this.getReviews.bind(this);
+    this.handleMoreReview = this.handleMoreReview.bind(this);
   }
 
   getReviews(id) {
@@ -30,36 +36,35 @@ class ReviewList extends React.Component {
         this.setState({
           reviewList: data.data.results,
           display: data.data.results.slice(0, 2)
-        })
+        });
         // console.log("new state", this.state.reviewList)
       })
       .catch((err) => {
-        console.log(err)
-      })
+        console.log(err);
+      });
   }
 
   componentDidMount() {
     // console.log(this.props)
-    this.getReviews(25192)
+    this.getReviews(25192);
   }
 
   handleMoreReview() {
-    var count = this.state.reviewCount
-    var display = this.state.reviewList.slice(0, count)
+    var count = this.state.reviewCount;
+    var display = this.state.reviewList.slice(0, count);
     this.setState((state) => {
       return {
         display: display,
         reviewCount: state.reviewCount + 2
-      }
-    })
+      };
+    });
   }
 
   render() {
-    var toRender = []
+    var toRender = [];
     if (this.state.reviewList.length) {
       toRender = (
-        <div>
-          <h1>Hello ReviewList</h1>
+        <ReviewList_div>
           <TotalSort />
           {this.state.display.map((review, index) =>
             <ReviewTile
@@ -80,12 +85,12 @@ class ReviewList extends React.Component {
 
           <WriteReview />
 
-        </div>
-      )
+        </ReviewList_div>
+      );
     } else {
       toRender = (
-        <div>
-          <h1>Hello ReviewList</h1>
+        <ReviewList_div>
+
           <TotalSort />
           {this.state.display.map((review, index) =>
             <ReviewTile
@@ -97,10 +102,10 @@ class ReviewList extends React.Component {
 
           <WriteReview />
 
-        </div>
-      )
+        </ReviewList_div>
+      );
     }
-    return toRender
+    return toRender;
   }
 }
 
