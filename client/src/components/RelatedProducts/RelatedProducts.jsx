@@ -6,11 +6,9 @@ import Modal from './Modal.jsx';
 import styled from 'styled-components';
 
 const Container = styled.div`
-width: 100%;
+width: 60%;
 display: flex;
 flex-direction: column;
-justify-content: center;
-align-items: center;
 `
 
 const ModalContainer = styled.div`
@@ -110,9 +108,9 @@ const RelatedProduct = ({currentProductId}) => {
       {
         loaded ?
         <RelatedContext.Provider value={{addOutfit, deleteOutfit, setImgClicked, setModalInfo}}>
-          Related Products
+          <h4>Related Products</h4>
           <Carousel productInfo={displayProducts} isOutfit={false} />
-          Outfit
+          <h4>Outfit</h4>
           <Carousel productInfo={displayOutfit} isOutfit={true}/>
         </RelatedContext.Provider>
         : <div>Page Loading</div>
