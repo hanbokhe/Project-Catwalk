@@ -24,7 +24,6 @@ export default class Photo extends Component {
 
   render() {
     const images = [this.props.photo.url];
-    console.log(this.props);
     const { photoIndex, isOpen } = this.state;
 
     return (

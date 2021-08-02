@@ -13,7 +13,6 @@ display: flex;
 flex-direction: row;
 flex-wrap: row;
 justify-content: space-between;
-width: 100%;
 `;
 
 var Reviews = (props) => {

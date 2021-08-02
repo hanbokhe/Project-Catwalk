@@ -10,11 +10,31 @@ const ReviewList_div = styled.div `
 margin-left: 100px;
 `;
 
+const ReviewTiles_Container = styled.div `
+height: 1000px;
+margin-top: 20px;
+overflow-y: scroll;
+::-webkit-scrollbar {
+  display: none;
+}
+margin-bottom: 20px
+`;
+
+const Button = styled.button`
+background-color: transparent;
+font-size: 18px;
+font-weight: bold;
+width: 160px;
+height: 50px;
+&:hover {
+  cursor: pointer;
+}
+`;
+
 const Buttons_Container = styled.div `
-padding-top: 20px;
-gap: 12px;
+gap: 15px;
 display: flex;
-flex-direction: row
+flex-direction: row;
 `;
 
 class ReviewList extends React.Component {
@@ -71,26 +91,29 @@ class ReviewList extends React.Component {
     if (this.state.reviewList.length > 2 &&
       this.state.display.length !== this.state.reviewList.length) {
       var MoreReview = <div>
-        <button onClick={this.handleMoreReview}>
+        <Button onClick={this.handleMoreReview}>
           More Review
-        </button>
+        </Button>
       </div>;
     }
 
     return (
       <ReviewList_div>
         <TotalSort />
-        {this.state.display.map((review, index) =>
-          <ReviewTile
-            key={index}
-            review={review}
-          />
-        )}
+        <ReviewTiles_Container>
+          {this.state.display.map((review, index) =>
+            <ReviewTile
+              key={index}
+              review={review}
+            />
+          )}
+        </ReviewTiles_Container>
+
         <Buttons_Container>
           {MoreReview}
-          <button>
+          <Button>
             Add a review +
-          </button>
+          </Button>
         </Buttons_Container>
 
 
