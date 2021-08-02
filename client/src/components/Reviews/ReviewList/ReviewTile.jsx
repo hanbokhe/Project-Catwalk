@@ -35,6 +35,11 @@ const ReviewBody_div = styled.div`
 font-size: 16px;
 `;
 
+const Photo_div = styled.div`
+display: flex;
+flex-direction: row;
+`;
+
 const Recommend_div = styled.div`
 font-size: 16px;
 `;
@@ -158,15 +163,14 @@ class ReviewTile extends React.Component {
           {this.state.reviewBody}
         </ReviewBody_div>
 
-        <div>
-          Review Photo: {this.state.photos.map((photo, index) =>
+        <Photo_div>
+          {this.state.photos.map((photo, index) =>
             <Photo
               key={index}
               photo={photo}
             />
-
           )}
-        </div>
+        </Photo_div>
 
         {recommend}
 

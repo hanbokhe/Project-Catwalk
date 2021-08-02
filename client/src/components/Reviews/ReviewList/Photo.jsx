@@ -7,6 +7,9 @@ import 'react-image-lightbox/style.css';
 const Preview = styled.button`
 border: none;
 background-color: transparent;
+&:hover {
+  cursor: pointer;
+}
 `;
 
 export default class Photo extends Component {
