@@ -18,13 +18,8 @@ height: 400px;
 overflow: hidden;
 display: flex;
 flex-direction: row;
-<<<<<<< HEAD
-`;
-
-=======
 border: solid 1px lightgray;
 `
->>>>>>> main
 const Inner_div = styled.div`
 width: 1008px;
 transition: transform 0.3s;

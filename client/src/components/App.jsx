@@ -8,10 +8,6 @@ width: 100%;
 display: flex;
 flex-direction: column;
 align-items: center;
-<<<<<<< HEAD
-border: solid 1px;
-`;
-=======
 justify-content: start;
 font-family: Arial, Helvetica, sans-serif;
 `
@@ -20,7 +16,6 @@ width: 65%;
 object-fit: scale-down;
 `
 
->>>>>>> main
 
 const App = (props) => {
   const [currentProductId, setCurrentProduct] = useState(25171);
