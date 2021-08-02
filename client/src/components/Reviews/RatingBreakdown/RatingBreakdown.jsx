@@ -21,10 +21,11 @@ const Recommended_div = styled.div`
 font-size: 18px;
 padding-top: 12px;
 padding-bottom: 12px;
+width: 250px;
 `;
 
 const RatingBreakdown_div = styled.div `
-width: 400px;
+width: 450px;
 `;
 
 class RatingBreakdown extends React.Component {

@@ -35,13 +35,6 @@ const ReviewBody_div = styled.div`
 font-size: 16px;
 `;
 
-const Img = styled.img`
-width: 193px;
-height: 130px;
-object-fit: scale-down;
-`;
-
-
 const Recommend_div = styled.div`
 font-size: 16px;
 `;
