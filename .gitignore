@@ -7,3 +7,5 @@ package-lock.json
 
 data.json
 metaReview.json
+
+.eslintrc.js

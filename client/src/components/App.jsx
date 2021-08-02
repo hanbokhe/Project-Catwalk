@@ -29,8 +29,8 @@ const App = (props) => {
       <QA currentProductId={currentProductId} />
       <Reviews />
     </Container>
-  )
-}
+  );
+};
 
 export default App;
 

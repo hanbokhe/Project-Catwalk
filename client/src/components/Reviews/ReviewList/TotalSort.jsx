@@ -5,7 +5,7 @@ class TotalSort extends React.Component {
     super(props);
     this.state = {
       totalReview: 248
-    }
+    };
   }
 
   render() {
@@ -15,7 +15,7 @@ class TotalSort extends React.Component {
         <b>{this.state.totalReview} reviews, sorted by relevance</b>
 
       </div>
-    )
+    );
   }
 }
 
