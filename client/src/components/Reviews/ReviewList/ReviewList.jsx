@@ -10,6 +10,12 @@ const ReviewList_div = styled.div `
 margin-left: 100px;
 `;
 
+const Buttons_Container = styled.div `
+padding-top: 20px;
+gap: 12px;
+display: flex;
+flex-direction: row
+`;
 
 class ReviewList extends React.Component {
   constructor(props) {
@@ -62,50 +68,36 @@ class ReviewList extends React.Component {
 
   render() {
     var toRender = [];
-    if (this.state.reviewList.length) {
-      toRender = (
-        <ReviewList_div>
-          <TotalSort />
-          {this.state.display.map((review, index) =>
-            <ReviewTile
-              key={index}
-              review={review}
-            />
-          )}
-          <h1>Buttons</h1>
-          <div>
-            <button onClick={this.handleMoreReview}>
-              More Review
-            </button>
-
-            <button>
-              Add a review +
-            </button>
-          </div>
-
-          <WriteReview />
-
-        </ReviewList_div>
-      );
-    } else {
-      toRender = (
-        <ReviewList_div>
-
-          <TotalSort />
-          {this.state.display.map((review, index) =>
-            <ReviewTile
-              key={index}
-              review={review}
-            />
-          )}
-          <h1>Buttons</h1>
-
-          <WriteReview />
-
-        </ReviewList_div>
-      );
+    if (this.state.reviewList.length > 2 &&
+      this.state.display.length !== this.state.reviewList.length) {
+      var MoreReview = <div>
+        <button onClick={this.handleMoreReview}>
+          More Review
+        </button>
+      </div>;
     }
-    return toRender;
+
+    return (
+      <ReviewList_div>
+        <TotalSort />
+        {this.state.display.map((review, index) =>
+          <ReviewTile
+            key={index}
+            review={review}
+          />
+        )}
+        <Buttons_Container>
+          {MoreReview}
+          <button>
+            Add a review +
+          </button>
+        </Buttons_Container>
+
+
+        <WriteReview />
+
+      </ReviewList_div>
+    );
   }
 }
 
