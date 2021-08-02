@@ -3,15 +3,15 @@ import styled from 'styled-components';
 
 const Header_div = styled.div`
 background-color: black;
-height: 120px;
-width: 65%;
+height: 80px;
+width: 100%;
 display: flex;
 flex-direction: row;
 justify-content: space-between;
 `
 const Logo = styled.img`
 height: 100%;
-object-fit: scale-down;
+object-fit: cover;
 `
 
 const Header = () => {
