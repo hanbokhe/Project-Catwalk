@@ -9,7 +9,7 @@ display: flex;
 flex-direction: row;
 align-items: center;
 justify-content: center;
-`
+`;
 
 const Carousel_div = styled.div`
 width: 1008px;
@@ -25,7 +25,7 @@ transition: transform 0.3s;
 display: flex;
 flex-direction: row;
 justify-content: start;
-`
+`;
 
 const Arrow_button = styled.button`
 height: 20px;
