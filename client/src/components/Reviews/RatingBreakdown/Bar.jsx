@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Bar_container = styled.div `
-width: 175px;
+display: flex;
+flex-direction: row;
+width: 250px;
 background-color: #f1f1f1;
 text-align: center;
 color: black;
@@ -14,11 +16,13 @@ display: flex;
 flex-direction:row;
 align-items: center;
 padding-bottom: 8px;
+width: 100%
 `;
 
 const SideBar_div = styled.div `
-padding-right: 8px;
+padding-right: 12px;
 font-size: 18px;
+width: 19%
 `;
 
 const RightBar_div = styled.div `

@@ -4,7 +4,7 @@ import RatingBreakdown from './RatingBreakdown/RatingBreakdown.jsx';
 import styled from 'styled-components';
 
 const Container = styled.div`
-width: 1010px;
+width: 60%;
 display: flex;
 flex-direction: column;
 `;
@@ -13,6 +13,7 @@ display: flex;
 flex-direction: row;
 flex-wrap: row;
 justify-content: space-between;
+width: 100%;
 `;
 
 var Reviews = (props) => {
