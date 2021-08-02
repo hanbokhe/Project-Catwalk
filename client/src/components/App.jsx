@@ -10,13 +10,13 @@ const Container = styled.div`
 width: 100%;
 display: flex;
 flex-direction: column;
+justify-content: flex-start;
 align-items: center;
-justify-content: center;
 font-family: Arial, Helvetica, sans-serif;
 `
 const Img = styled.img`
-width: 60%;
-object-fit: scale-down;
+width: 58%;
+object-fit: cover;
 `
 
 
@@ -25,6 +25,7 @@ const App = (props) => {
   return (
     <Container>
       <Header/>
+      <Img src={'./Overview.jpg'}/>
       <RelatedProduct currentProductId={currentProductId} />
       <QA currentProductId={currentProductId} />
       <Reviews />
