@@ -34,8 +34,15 @@ const ReviewBody_div = styled.div`
 font-size: 18px;
 `;
 
-const Recommend_div = styled.div`
+const Img = styled.img`
+width: 193px;
+height: 130px;
+object-fit: scale-down;
+`;
 
+
+const Recommend_div = styled.div`
+font-size: 18px;
 `;
 
 const Response_div = styled.div`
@@ -45,6 +52,8 @@ const Response_div = styled.div`
 const helpful_div = styled.div`
 
 `;
+
+
 
 class ReviewTile extends React.Component {
   constructor(props) {
@@ -120,6 +129,9 @@ class ReviewTile extends React.Component {
   render() {
     var dateStr = this.state.date;
     var formattedDate = moment(dateStr).format('MMM DD, YYYY');
+    if (this.state.recommend) {
+      var recommend = <Recommend_div> <span style={{color: 'green'}}>&#10003;</span>   I recommended this product</Recommend_div>;
+    }
     return (
       <ReviewTile_Container>
         <Start_Info_Container>
@@ -139,16 +151,15 @@ class ReviewTile extends React.Component {
         </ReviewBody_div>
 
         <div>
-          Review Photo: {this.state.photos.map((photo, index) => <Photo
-            key={index}
-            photo={photo}
-          />
+          Review Photo: {this.state.photos.map((photo, index) =>
+            <Photo
+              key={index}
+              photo={photo}
+            />
+
           )}
         </div>
-        <div>
-          Recommend: {this.state.recommend ? 'yes' : 'no'}
-        </div>
-
+        {recommend}
         <div>
           Response to Review: {this.state.response}
         </div>
