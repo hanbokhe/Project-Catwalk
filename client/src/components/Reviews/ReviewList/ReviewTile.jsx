@@ -23,15 +23,16 @@ justify-content: space-between
 
 const Username_Date_Container = styled.div`
 color: #777777;
+font-size: 16px;
 `;
 
 const Summary_div = styled.div`
 font-weight: bold;
-font-size: 26px;
+font-size: 24px;
 `;
 
 const ReviewBody_div = styled.div`
-font-size: 18px;
+font-size: 16px;
 `;
 
 const Img = styled.img`
@@ -42,15 +43,29 @@ object-fit: scale-down;
 
 
 const Recommend_div = styled.div`
-font-size: 18px;
+font-size: 16px;
 `;
 
-const Response_div = styled.div`
-
+const Response_Container = styled.div`
+display: flex;
+background-color: #d3d3d3;
+height:80px;
+align-items: center
 `;
 
-const helpful_div = styled.div`
+const ResponseText_Container = styled.div`
+padding-left: 20px;
+font-size: 16px;
+display: flex;
+flex-direction: column;
+gap: 12px;
+`;
 
+const Helpful_div = styled.div`
+gap: 12px;
+display: flex;
+flex-direction: row;
+font-size: 16px;
 `;
 
 
@@ -159,16 +174,37 @@ class ReviewTile extends React.Component {
 
           )}
         </div>
+
         {recommend}
-        <div>
-          Response to Review: {this.state.response}
-        </div>
-        <div>
-          Rating Helpfulness:{this.state.helpfulness}
+
+        <Response_Container>
+          <ResponseText_Container>
+            <div>
+              <span style={{color: 'black', fontWeight: 'bold'}}>Response:</span>
+            </div>
+            <div>
+              {this.state.response} This is a reponse place holder
+            </div>
+          </ResponseText_Container>
+
+        </Response_Container>
+
+        <Helpful_div>
+          <div>Helpful?</div>
+
           <div>
-            Vote on: <a href="#1" onClick={this.handleVoteYes}>Yes</a> : <a href="#2" onClick={this.handleReport}>Report</a>
+            <a href="#1" onClick={this.handleVoteYes}>Yes</a> ({this.state.helpfulness})
           </div>
-        </div>
+
+          <div>
+            |
+          </div>
+
+          <div>
+            <a href="#2" onClick={this.handleReport}>Report</a>
+          </div>
+
+        </Helpful_div>
 
       </ReviewTile_Container>
 

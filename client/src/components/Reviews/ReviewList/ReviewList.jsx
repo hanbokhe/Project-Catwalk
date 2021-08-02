@@ -65,7 +65,6 @@ class ReviewList extends React.Component {
     if (this.state.reviewList.length) {
       toRender = (
         <ReviewList_div>
-          <h1>Hello ReviewList</h1>
           <TotalSort />
           {this.state.display.map((review, index) =>
             <ReviewTile
@@ -91,7 +90,7 @@ class ReviewList extends React.Component {
     } else {
       toRender = (
         <ReviewList_div>
-          <h1>Hello ReviewList</h1>
+
           <TotalSort />
           {this.state.display.map((review, index) =>
             <ReviewTile
