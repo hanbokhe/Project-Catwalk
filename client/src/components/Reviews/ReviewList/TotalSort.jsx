@@ -1,4 +1,9 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Container = styled.div`
+font-size: 24px
+`;
 
 class TotalSort extends React.Component {
   constructor(props) {
@@ -10,11 +15,9 @@ class TotalSort extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Total Sort</h1>
+      <Container>
         <b>{this.state.totalReview} reviews, sorted by relevance</b>
-
-      </div>
+      </Container>
     );
   }
 }
