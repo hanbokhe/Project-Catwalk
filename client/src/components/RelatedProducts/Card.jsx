@@ -123,7 +123,6 @@ const Card = ({style, product, isOutfit}) => {
 
   return (
     <React.Fragment>
-
       <Card_div>
         {
           isOutfit?
