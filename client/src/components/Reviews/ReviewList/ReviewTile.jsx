@@ -46,7 +46,7 @@ font-size: 16px;
 
 const Response_Container = styled.div`
 display: flex;
-background-color: #d3d3d3;
+background-color: lightgray;
 height:80px;
 align-items: center
 `;
@@ -64,6 +64,30 @@ gap: 12px;
 display: flex;
 flex-direction: row;
 font-size: 16px;
+`;
+
+const Yes_Container = styled.div`
+.yes {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+};
+
+&:hover .yes {
+  color: green;
+}
+`;
+
+const Report_Container = styled.div`
+.report {
+  text-decoration: none;
+  font-weight: bold;
+  color: black
+};
+
+&:hover .report {
+  color: red;
+}
 `;
 
 
@@ -189,17 +213,17 @@ class ReviewTile extends React.Component {
         <Helpful_div>
           <div>Helpful?</div>
 
-          <div>
-            <a href="#1" onClick={this.handleVoteYes}>Yes</a> ({this.state.helpfulness})
-          </div>
+          <Yes_Container>
+            <a className='yes' href="#1" onClick={this.handleVoteYes}>Yes</a> ({this.state.helpfulness})
+          </Yes_Container>
 
           <div>
             |
           </div>
 
-          <div>
-            <a href="#2" onClick={this.handleReport}>Report</a>
-          </div>
+          <Report_Container>
+            <a className="report" href="#2" onClick={this.handleReport}>Report</a>
+          </Report_Container>
 
         </Helpful_div>
 
