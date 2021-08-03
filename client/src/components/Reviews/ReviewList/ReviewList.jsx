@@ -41,7 +41,7 @@ class ReviewList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mastList: [],
+      masterList: [],
       reviewList: [],
       display: [],
       reviewCount: 4,
@@ -88,13 +88,11 @@ class ReviewList extends React.Component {
       }
     })
       .then((data) => {
-        //console.log(data.data.results),
         this.setState({
           masterList: data.data.results,
           reviewList: data.data.results,
           display: data.data.results.slice(0, 2)
         });
-        // console.log("new state", this.state.reviewList)
       })
       .catch((err) => {
         console.log(err);
@@ -102,27 +100,19 @@ class ReviewList extends React.Component {
   }
 
   componentDidMount() {
-    this.getReviews(25192);
+    this.getReviews(this.props.currentProductId);
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log("prevState", prevState);
     if (this.state.filterStar !== prevState.filterStar) {
-      console.log("Do I update");
-      console.log(this.state.reviewList);
-      console.log(this.state.filterStar);
       this.filterReview(this.state.masterList, this.state.filterStar, (data) => (this.setState({
         reviewList: data,
         display: data.slice(0, 2)
       })));
-      // this.filterReview(this.state.reviewList, this.state.filterStar, console.log);
     }
   }
 
-
-
   render() {
-
     if (this.state.reviewList.length > 2 &&
       this.state.display.length !== this.state.reviewList.length) {
       var MoreReview = <div>
@@ -133,8 +123,6 @@ class ReviewList extends React.Component {
     }
 
     return (
-      console.log(this.state),
-      this.filterReview(this.state.reviewList, '4', console.log),
       <ReviewList_div>
         <TotalSort />
         <ReviewTiles_Container>

@@ -87,7 +87,7 @@ class RatingBreakdown extends React.Component {
   }
 
   componentDidMount() {
-    this.getMetaReviews(25193, this.getAvg);
+    this.getMetaReviews(this.props.currentProductId, this.getAvg);
   }
 
   render() {
