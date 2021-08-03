@@ -10,7 +10,7 @@ height: 400px;
 width: 250px;
 display: flex;
 flex-direction: column;
-border: solid 1px lightgray;
+outline: solid 1px lightgray;
 `
 const Img_div = styled.div`
 height: 315px;
@@ -56,10 +56,9 @@ const Card = ({style, product, isOutfit}) => {
   const [defaultItem, setDefault] = useState(style.results[0]);
   const [photo, setPhoto] = useState(null);
   const [average, setAverage] = useState(0);
+  const [reviews, setReviews] = useState({});
   const [loaded, setLoaded] = useState(false);
-  const {addOutfit, deleteOutfit, setModalInfo, setImgClicked} = useContext(RelatedContext);
-
-  const inputRef = React.createRef();
+  const {addOutfit, deleteOutfit, setComparedInfo, setImgClicked} = useContext(RelatedContext);
 
   const getDefault = () => {
     for(var i = 0; i < style.results.length; i++) {
@@ -90,21 +89,23 @@ const Card = ({style, product, isOutfit}) => {
       }
     })
       .then(({data}) => {
-        var ratings = data.ratings;
+        var rating = data.ratings;
         var count = 0;
         var total = 0;
 
-        for (var key in ratings) {
-          count += parseInt(ratings[key]);
-          total += (parseInt(key) * ratings[key]);
+        setReviews(data);
+
+        for (var key in rating) {
+          count += parseInt(rating[key]);
+          total += (parseInt(key) * rating[key]);
         }
         var avg = Math.round(total / count * 10) / 10;
-        console.log(total);
+        //console.log(data);
         if(avg) {
           setAverage(avg);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
   }
 
 
@@ -131,10 +132,10 @@ const Card = ({style, product, isOutfit}) => {
     deleteOutfit(product.id)
   }
 
-  const Click = (e) => {
+  const imgClick = (e) => {
     e.preventDefault();
-    setModalInfo({style, product})
-    setImgClicked(prevState => (!prevState));
+    setComparedInfo({style, product, reviews})
+    setImgClicked(true);
   }
 
   return (
@@ -148,7 +149,7 @@ const Card = ({style, product, isOutfit}) => {
         <Img_div>
         {
           photo ?
-            <Img src={photo} onClick={Click}/>
+            <Img src={photo} onClick={imgClick}/>
             : null
         }
         </Img_div>

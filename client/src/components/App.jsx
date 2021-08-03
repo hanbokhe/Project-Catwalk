@@ -22,6 +22,7 @@ object-fit: cover;
 
 const App = (props) => {
   const [currentProductId, setCurrentProduct] = useState(25171);
+
   return (
     <Container>
       <Header/>
