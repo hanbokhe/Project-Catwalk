@@ -17,7 +17,7 @@ object-fit: cover;
 const Header = () => {
   return (
     <Header_div>
-      <Logo src={`./alo_black.png`}/>
+      <Logo src={`./nike_logo.jpg`}/>
     </Header_div>
   )
 }

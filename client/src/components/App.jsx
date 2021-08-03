@@ -15,8 +15,8 @@ align-items: center;
 font-family: Arial, Helvetica, sans-serif;
 `
 const Img = styled.img`
-width: 58%;
-object-fit: cover;
+width: 55%;
+object-fit: contain;
 `
 
 

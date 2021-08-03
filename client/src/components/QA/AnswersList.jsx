@@ -5,6 +5,7 @@ import styled from 'styled-components';
 const A_container = styled.div`
 width: 100%;
 background-color: white;
+padding-left: 20px;
 `
 
 const MoreA = styled.button`
