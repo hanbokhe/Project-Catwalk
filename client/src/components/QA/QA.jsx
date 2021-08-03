@@ -18,15 +18,6 @@ align-items: flex-start;
 border: none;
 transition: background-color 0.6s ease;
 `
-const QA_btn = styled.button`
-background-color: white;
-width: 120px;
-padding: 5px;
-font-size: 10px;
-margin: 5px;
-font-weight: bold;
-`
-
 
 const QA = ({currentProductId}) => {
   const [questions, setQuestions] = useState([]);
@@ -50,25 +41,13 @@ const QA = ({currentProductId}) => {
     setLoaded(true);
   }, [questions])
 
+  useEffect (
+    () => {
 
-  const QAbutton = () => {
-    //console.log('this is sorted Questions and Limit', .sortedQuestions.length, ':' , .limit);
-    if(sortedQuestions.length === 0 || sortedQuestions.length === 4) {
-      return null;
-    } else if (sortedQuestions.length > 4) {
-      return (
-        <QA_btn onClick={this.handleLoadMore}>
-          More Questions
-        </QA_btn>
-      )
-    } else {
-      return (
-        <QA_btn onClick={this.handleLoadMore}>
-          Collapse Questions
-        </QA_btn>
-      )
-    }
-  }
+    }, [sortedQuestions])
+
+
+
 
   return (
     <Container>
@@ -78,7 +57,6 @@ const QA = ({currentProductId}) => {
           <QuestionsList questions={sortedQuestions}/>
           : <div>QA Loading</div>
         }
-        {QAbutton}
       </Accordian>
     </Container>
   )
