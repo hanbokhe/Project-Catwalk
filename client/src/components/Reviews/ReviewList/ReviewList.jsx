@@ -41,38 +41,21 @@ class ReviewList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      mastList: [],
       reviewList: [],
       display: [],
-      reviewCount: 4
+      reviewCount: 4,
+      filterStar: props.filterStar
     };
     this.getReviews = this.getReviews.bind(this);
     this.handleMoreReview = this.handleMoreReview.bind(this);
+    this.filterReview = this.filterReview.bind(this);
   }
 
-  getReviews(id) {
-    axios({
-      method: 'get',
-      url: 'http://localhost:3000/reviews',
-      params: {
-        product_id: id
-      }
-    })
-      .then((data) => {
-        //console.log(data.data.results),
-        this.setState({
-          reviewList: data.data.results,
-          display: data.data.results.slice(0, 2)
-        });
-        // console.log("new state", this.state.reviewList)
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-
-  componentDidMount() {
-    // console.log(this.props)
-    this.getReviews(25192);
+  static getDerivedStateFromProps(props, state) {
+    return {
+      filterStar: props.filterStar
+    };
   }
 
   handleMoreReview() {
@@ -86,8 +69,60 @@ class ReviewList extends React.Component {
     });
   }
 
+  filterReview(arrayReview, star, callback) {
+    var toReturn = [];
+    for (var i = 0; i < arrayReview.length; i++) {
+      if (arrayReview[i].rating === parseInt(star)) {
+        toReturn.push(arrayReview[i]);
+      }
+    }
+    callback(toReturn);
+  }
+
+  getReviews(id) {
+    axios({
+      method: 'get',
+      url: 'http://localhost:3000/reviews',
+      params: {
+        product_id: id
+      }
+    })
+      .then((data) => {
+        //console.log(data.data.results),
+        this.setState({
+          masterList: data.data.results,
+          reviewList: data.data.results,
+          display: data.data.results.slice(0, 2)
+        });
+        // console.log("new state", this.state.reviewList)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  componentDidMount() {
+    this.getReviews(25192);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log("prevState", prevState);
+    if (this.state.filterStar !== prevState.filterStar) {
+      console.log("Do I update");
+      console.log(this.state.reviewList);
+      console.log(this.state.filterStar);
+      this.filterReview(this.state.masterList, this.state.filterStar, (data) => (this.setState({
+        reviewList: data,
+        display: data.slice(0, 2)
+      })));
+      // this.filterReview(this.state.reviewList, this.state.filterStar, console.log);
+    }
+  }
+
+
+
   render() {
-    var toRender = [];
+
     if (this.state.reviewList.length > 2 &&
       this.state.display.length !== this.state.reviewList.length) {
       var MoreReview = <div>
@@ -98,6 +133,8 @@ class ReviewList extends React.Component {
     }
 
     return (
+      console.log(this.state),
+      this.filterReview(this.state.reviewList, '4', console.log),
       <ReviewList_div>
         <TotalSort />
         <ReviewTiles_Container>

@@ -40,7 +40,6 @@ class RatingBreakdown extends React.Component {
     };
     this.getMetaReviews = this.getMetaReviews.bind(this);
     this.getAvg = this.getAvg.bind(this);
-    this.filterStar = this.filterStar.bind(this);
   }
 
   getMetaReviews(product_id, callback) {
@@ -87,12 +86,6 @@ class RatingBreakdown extends React.Component {
     });
   }
 
-  filterStar(star) {
-    console.log(star);
-    return star;
-  }
-
-
   componentDidMount() {
     this.getMetaReviews(25193, this.getAvg);
   }
@@ -112,7 +105,7 @@ class RatingBreakdown extends React.Component {
             {this.state.count} total reviews, {this.state.recommended}% reviews recommended this products
           </div>
         </Recommended_div>
-        <Breakdown filterStar={this.filterStar}breakdowns={this.state.breakdownArray}/>
+        <Breakdown filterStar={this.props.filterStar}breakdowns={this.state.breakdownArray}/>
         <Characteristics characteristics={this.state.characteristics} />
 
       </RatingBreakdown_div>
