@@ -21,10 +21,11 @@ const Recommended_div = styled.div`
 font-size: 18px;
 padding-top: 12px;
 padding-bottom: 12px;
+width: 250px;
 `;
 
 const RatingBreakdown_div = styled.div `
-width: 400px;
+width: 450px;
 `;
 
 class RatingBreakdown extends React.Component {
@@ -85,7 +86,6 @@ class RatingBreakdown extends React.Component {
     });
   }
 
-
   componentDidMount() {
     this.getMetaReviews(25193, this.getAvg);
   }
@@ -105,7 +105,7 @@ class RatingBreakdown extends React.Component {
             {this.state.count} total reviews, {this.state.recommended}% reviews recommended this products
           </div>
         </Recommended_div>
-        <Breakdown breakdowns={this.state.breakdownArray}/>
+        <Breakdown filterStar={this.props.filterStar}breakdowns={this.state.breakdownArray}/>
         <Characteristics characteristics={this.state.characteristics} />
 
       </RatingBreakdown_div>
