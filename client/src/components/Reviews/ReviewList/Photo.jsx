@@ -4,6 +4,13 @@ import styled from 'styled-components';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 
+const Preview = styled.button`
+border: none;
+background-color: transparent;
+&:hover {
+  cursor: pointer;
+}
+`;
 
 export default class Photo extends Component {
   constructor(props) {
@@ -17,19 +24,19 @@ export default class Photo extends Component {
 
   render() {
     const images = [this.props.photo.url];
-    console.log(this.props);
     const { photoIndex, isOpen } = this.state;
 
     return (
       <div>
-        <button type="button" onClick={() => this.setState({ isOpen: true })}>
+
+        <Preview type="button" onClick={() => this.setState({ isOpen: true })}>
           <img className="thumbnail"
             src={this.props.photo.url}
             alt={this.props.photo.id}
             width="193"
             height="130"
           />
-        </button>
+        </Preview>
 
         {isOpen && (
           <Lightbox
