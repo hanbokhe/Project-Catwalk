@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 const Container = styled.div`
 position: absolute;
-width: 50%;
 padding: 10px;
 z-index: 2;
 background-color: white;
@@ -23,18 +22,18 @@ const Table = styled.div`
 padding: 10px;
 display: flex;
 flex-direction: column;
-justify-content: flex-start;
+justify-content: center;
 align-items: center;
 `
 const Row = styled.div`
-height: 30px;
-width: 80%;
 display: flex;
 flex-direction: row;
+justify-content: center;
+align-items: center;
 `
 const Cell = styled.div`
 height: 30px;
-width: 400px;
+width: 150px;
 font-size: 12px;
 display: flex;
 justify-content: center;
