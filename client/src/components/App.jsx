@@ -24,9 +24,9 @@ const App = (props) => {
   const [currentProductId, setCurrentProduct] = useState(25171);
   return (
     <Container>
-      <Header/>
+      {/* <Header/>
       <RelatedProduct currentProductId={currentProductId} />
-      <QA currentProductId={currentProductId} />
+      <QA currentProductId={currentProductId} /> */}
       <Reviews />
     </Container>
   );
