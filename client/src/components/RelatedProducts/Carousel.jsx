@@ -12,15 +12,15 @@ justify-content: center;
 `;
 
 const Carousel_div = styled.div`
-width: 1008px;
+width: 1000px;
 height: 400px;
 overflow: hidden;
 display: flex;
 flex-direction: row;
-border: solid 1px lightgray;
+outline: solid 1px lightgray;
 `
 const Inner_div = styled.div`
-width: 1008px;
+width: 1000px;
 transition: transform 0.3s;
 display: flex;
 flex-direction: row;
@@ -49,7 +49,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-border: solid 1px lightgray;
+outline: solid 1px lightgray;
 `
 
 const Carousel = ({productInfo, isOutfit, addOutfit}) => {
@@ -81,7 +81,7 @@ const Carousel = ({productInfo, isOutfit, addOutfit}) => {
               <div>Add To Outfit</div>
             </BlankCard>
             : productInfo.map( ({style, product}) => (
-                <Card product={product} style={style} isOutfit={isOutfit} key={product.product_id} />
+                <Card product={product} style={style} isOutfit={isOutfit} />
             ))
           }
         </Inner_div>

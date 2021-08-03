@@ -28,7 +28,9 @@ const RelatedProduct = ({currentProductId}) => {
   const [relatedProductIds, setRelated] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const [imgClicked, setImgClicked] = useState(false);
-  const [modalInfo, setModalInfo] = useState({});
+  const [comparedInfo, setComparedInfo] = useState({});
+  const [currProduct, setCurrProduct] = useState({});
+  const [currReviews, setCurrReviews] = useState({});
 
   const getProducts = async () => {
     try {
@@ -49,6 +51,51 @@ const RelatedProduct = ({currentProductId}) => {
       console.error(err);
     }
   }
+
+  const getCurrProduct = async (product_id) => {
+    let {data} = await axios.get(`/products/${product_id}`);
+    setCurrProduct(data);
+  }
+
+  const getCurrReview = async (product_id) => {
+    try {
+      let options = {
+        method: 'GET',
+        url: 'http://localhost:3000/reviews/meta',
+        params: {
+          product_id: product_id
+        }
+      };
+      let {data} = await axios(options);
+      //console.log('review', data)
+      setCurrReviews(data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  //lifecycle methods
+
+  useEffect(() => {
+    axios.get(`/related/${currentProductId}`)
+    .then(({data}) => {
+      var noDups = [...new Set(data)];
+      //console.log('this is data from server', data);
+      setRelated(noDups);
+      getCurrReview(currentProductId);
+      getCurrProduct(currentProductId);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+  }, []);
+
+  useEffect(() => {
+    getProducts()
+  }, [relatedProductIds])
+
+
+  //click handlers
 
   const addOutfit = (addedItem) => {
     var doesContain = false;
@@ -78,74 +125,29 @@ const RelatedProduct = ({currentProductId}) => {
     }
   }
 
-  useEffect(() => {
-    axios.get(`/related/${currentProductId}`)
-    .then(({data}) => {
-      var noDups = [...new Set(data)];
-      //console.log('this is data from server', data);
-      setRelated(noDups);
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-  }, []);
-
-  useEffect(() => {
-    //getStyles()
-    getProducts()
-  }, [relatedProductIds])
-
-
   return (
     <Container>
-      {
-        imgClicked ?
-        <ModalContainer>
-          <Modal modalInfo={modalInfo}/>
-        </ModalContainer>
-        : null
-      }
-      {
-        loaded ?
-        <RelatedContext.Provider value={{addOutfit, deleteOutfit, setImgClicked, setModalInfo}}>
-          <h4>Related Products</h4>
-          <Carousel productInfo={displayProducts} isOutfit={false} />
-          <h4>Outfit</h4>
-          <Carousel productInfo={displayOutfit} isOutfit={true}/>
-        </RelatedContext.Provider>
-        : <div>Page Loading</div>
-      }
+      <RelatedContext.Provider value={{addOutfit, deleteOutfit, setImgClicked, setComparedInfo}}>
+        {
+          imgClicked ?
+          <ModalContainer>
+            <Modal comparedInfo={comparedInfo} currProduct={currProduct} currReviews={currReviews}/>
+          </ModalContainer>
+          : null
+        }
+        {
+          loaded ?
+          <div>
+            <h4>Related Products</h4>
+            <Carousel productInfo={displayProducts} isOutfit={false} />
+            <h4>Outfit</h4>
+            <Carousel productInfo={displayOutfit} isOutfit={true}/>
+          </div>
+          : <div>Page Loading</div>
+        }
+      </RelatedContext.Provider>
     </Container>
   )
 }
 
 export default RelatedProduct;
-
-  // const getStyles = async () => {
-  //   try {
-  //     for(var i = 0; i < relatedProductIds.length; i++) {
-  //       const {data} = await axios.get(`/styles/${relatedProductIds[i]}`)
-  //       var style = data;
-  //       await setStyles(prevState => (
-  //         [...prevState, data]
-  //       ));
-  //     }
-  //     await setLoaded(true);
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // }
-
-  // const getProducts = async () => {
-  //   try {
-  //     for(var i = 0; i < relatedProductIds.length; i++) {
-  //       const {data} = await axios.get(`/products/${relatedProductIds[i]}`)
-  //       await setProducts(prevState => (
-  //         [...prevState, data]
-  //       ));
-  //     }
-  //     await setLoaded(true);
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // }
