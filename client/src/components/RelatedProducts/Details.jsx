@@ -20,8 +20,23 @@ font-size: medium;
 const Price = styled.span`
 font-size: small;
 `
+const Stars = styled.div`
+  display: inline-block;
+  font-size: 18px;
+  font-family: Times; // make sure ★ appears correctly
+  line-height: 1;
+  color: gray;
 
-const Details = ({defaultStyle, product}) => {
+  &::before {
+    content: "★★★★★";
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, #ffe789 ${props => props.rating}, #c4c4c4 ${props => props.rating});
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+`
+
+const Details = ({defaultStyle, product, average}) => {
 
   return (
     <React.Fragment>
@@ -33,6 +48,7 @@ const Details = ({defaultStyle, product}) => {
           <Price>${defaultStyle.sale_price}</Price>
           : <Price>${defaultStyle.original_price}</Price>
         }
+        <Stars rating={`${average * 20}%`} />
       </Detail_div>
     </React.Fragment>
   )

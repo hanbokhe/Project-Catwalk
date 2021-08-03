@@ -2,11 +2,27 @@ import React, {useState, useEffect} from 'react';
 import AnswersList from "./AnswersList.jsx";
 import styled from 'styled-components';
 
+const Q_div = styled.div`
+width: 100%;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+`
 
 const Q_title = styled.span`
-font-weight: 600;
-font-size: 16px;
 padding: 10px;
+font-size: 16px;
+font-weight: bold;
+`
+
+const Add_span = styled.span`
+padding: 10px;
+font-size: 12px;
+font-weight: bold;
+&:hover {
+  color: green;
+}
 `
 
 const Question = ({question}) => {
@@ -27,9 +43,14 @@ const Question = ({question}) => {
 
   return (
     <>
-      <Q_title>
-        Q: <> </> {question.question_body}
-      </Q_title>
+      <Q_div>
+        <Q_title>
+          Q: <> </> {question.question_body}
+        </Q_title>
+        <Add_span>
+          + Add Answer
+        </Add_span>
+      </Q_div>
       <AnswersList answers={sortedAnswers}/>
     </>
   )

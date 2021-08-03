@@ -10,6 +10,9 @@ cursor: pointer;
 align-items: center;
 border: none;
 outline: none;
+&:hover {
+  color: red;
+}
 `
 
 const Report = () => {
