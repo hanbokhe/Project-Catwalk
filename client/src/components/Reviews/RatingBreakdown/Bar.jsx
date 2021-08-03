@@ -19,7 +19,7 @@ padding-bottom: 8px;
 width: 100%;
 &:hover {
   cursor: pointer;
-  background-color: #777777;
+  background-color: lightgray;
 }
 `;
 

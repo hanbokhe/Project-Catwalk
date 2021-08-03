@@ -7,7 +7,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 
 const ReviewList_div = styled.div `
-margin-left: 100px;
+margin-left: 80px;
 `;
 
 const ReviewTiles_Container = styled.div `
