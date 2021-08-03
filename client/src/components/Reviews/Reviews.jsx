@@ -15,16 +15,22 @@ flex-wrap: row;
 justify-content: space-between;
 `;
 
-var Reviews = (props) => {
-  return (
-    <Container>
-      <p>RATING & REVIEWS</p>
-      <ReViewsContainer>
-        <RatingBreakdown />
-        <ReviewList currentProductId={props.currentProductId}/>
-      </ReViewsContainer>
-    </Container>
-  );
-};
+class Reviews extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <Container>
+        <p>RATING & REVIEWS</p>
+        <ReViewsContainer>
+          <RatingBreakdown />
+          <ReviewList currentProductId={this.props.currentProductId}/>
+        </ReViewsContainer>
+      </Container>
+    );
+  }
+}
 
 export default Reviews;
