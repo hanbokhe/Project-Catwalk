@@ -18,6 +18,23 @@ justify-content: space-between;
 class Reviews extends React.Component {
   constructor(props) {
     super(props);
+    this.filterStar = this.filterStar.bind(this);
+    this.state = {
+      filterStar: 0
+    };
+  }
+
+  // static getDerivedStateFromProps(props, state) {
+  //   return {
+  //     filterStar: props.toFilter
+  //   };
+  // }
+
+  filterStar(star) {
+    console.log("star", star);
+    this.setState({
+      filterStar: star
+    });
   }
 
   render() {
@@ -25,8 +42,8 @@ class Reviews extends React.Component {
       <Container>
         <p>RATING & REVIEWS</p>
         <ReViewsContainer>
-          <RatingBreakdown />
-          <ReviewList currentProductId={this.props.currentProductId}/>
+          <RatingBreakdown filterStar={this.filterStar}/>
+          <ReviewList filterStar={this.state.filterStar}currentProductId={this.props.currentProductId}/>
         </ReViewsContainer>
       </Container>
     );

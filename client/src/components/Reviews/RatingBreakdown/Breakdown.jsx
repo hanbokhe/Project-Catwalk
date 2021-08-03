@@ -2,25 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Bar from './Bar.jsx';
 
-// var Breakdown = ({breakdowns}) => {
-//   if (breakdowns !== undefined) {
-//     return (
-//       <div>
-//         {breakdowns.map((breakdown, index) =>
-//           <Bar
-//             key = {index}
-//             breakdown = {breakdown}
-//           />
-//         )}
-//       </div>
-//     );
-//   } else {
-//     return (
-//       <div></div>
-//     );
-//   }
-// };
-
 class Breakdown extends React.Component {
   constructor(props) {
     super(props);
@@ -29,7 +10,7 @@ class Breakdown extends React.Component {
     };
   }
 
-  static getDerivedStateFromProps(props, newstate) {
+  static getDerivedStateFromProps(props, state) {
     return {
       breakdowns: props.breakdowns
     };
