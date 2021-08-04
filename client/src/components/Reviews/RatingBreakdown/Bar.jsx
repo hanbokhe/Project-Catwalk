@@ -19,7 +19,7 @@ padding-bottom: 8px;
 width: 100%;
 &:hover {
   cursor: pointer;
-  background-color: #777777;
+  background-color: lightgray;
 }
 `;
 
@@ -50,6 +50,7 @@ class Bar extends React.Component {
   }
 
   render() {
+
     const Bar_div = styled.div `
     width: ${this.state.breakdown[2]}%;
     height: 14px;
