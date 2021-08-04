@@ -102,7 +102,7 @@ class RatingBreakdown extends React.Component {
 
         <Recommended_div>
           <div>
-            {this.state.count} total reviews, {this.state.recommended}% reviews recommended this products
+            {this.state.count} total rating, {this.state.recommended}% reviews recommended this products
           </div>
         </Recommended_div>
         <Breakdown filterStar={this.props.filterStar}breakdowns={this.state.breakdownArray}/>

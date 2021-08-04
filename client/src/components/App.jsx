@@ -21,7 +21,7 @@ object-fit: contain;
 
 
 const App = (props) => {
-  const [currentProductId, setCurrentProduct] = useState(25191);
+  const [currentProductId, setCurrentProduct] = useState(25192);
 
   return (
     <Container>
