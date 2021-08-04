@@ -7,7 +7,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 
 const ReviewList_div = styled.div `
-margin-left: 100px;
+margin-left: 80px;
 `;
 
 const ReviewTiles_Container = styled.div `
@@ -41,15 +41,16 @@ class ReviewList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mastList: [],
+      masterList: [],
       reviewList: [],
       display: [],
       reviewCount: 4,
-      filterStar: props.filterStar
+      filterStar: 0
     };
     this.getReviews = this.getReviews.bind(this);
     this.handleMoreReview = this.handleMoreReview.bind(this);
     this.filterReview = this.filterReview.bind(this);
+    this.buttonRender = this.buttonRender.bind(this);
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -76,6 +77,7 @@ class ReviewList extends React.Component {
         toReturn.push(arrayReview[i]);
       }
     }
+    console.log("toReturn", toReturn);
     callback(toReturn);
   }
 
@@ -87,75 +89,66 @@ class ReviewList extends React.Component {
         product_id: id
       }
     })
-      .then((data) => {
-        //console.log(data.data.results),
+      .then(({data}) => {
         this.setState({
-          masterList: data.data.results,
-          reviewList: data.data.results,
-          display: data.data.results.slice(0, 2)
+          masterList: data.results,
+          reviewList: data.results,
+          display: data.results.slice(0, 2)
         });
-        // console.log("new state", this.state.reviewList)
       })
       .catch((err) => {
         console.log(err);
       });
   }
 
-  componentDidMount() {
-    this.getReviews(25192);
-  }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log("prevState", prevState);
-    if (this.state.filterStar !== prevState.filterStar) {
-      console.log("Do I update");
-      console.log(this.state.reviewList);
-      console.log(this.state.filterStar);
-      this.filterReview(this.state.masterList, this.state.filterStar, (data) => (this.setState({
-        reviewList: data,
-        display: data.slice(0, 2)
-      })));
-      // this.filterReview(this.state.reviewList, this.state.filterStar, console.log);
+    var filterStarChange = this.state.filterStar !== prevState.filterStar;
+    if (filterStarChange) {
+      this.filterReview(this.state.masterList, this.state.filterStar, (data) => {
+        this.setState({
+          reviewList: data,
+          display: data.slice(0, 2),
+        //filterStar: this.state.filterStar
+        });
+      });
     }
   }
 
+  componentDidMount() {
+    this.getReviews(this.props.currentProductId);
+  }
 
-
-  render() {
-
+  buttonRender() {
     if (this.state.reviewList.length > 2 &&
-      this.state.display.length !== this.state.reviewList.length) {
-      var MoreReview = <div>
+    this.state.display.length !== this.state.reviewList.length) {
+      return (
         <Button onClick={this.handleMoreReview}>
           More Review
         </Button>
-      </div>;
+      );
     }
+  }
 
+  render() {
     return (
-      console.log(this.state),
-      this.filterReview(this.state.reviewList, '4', console.log),
       <ReviewList_div>
         <TotalSort />
         <ReviewTiles_Container>
-          {this.state.display.map((review, index) =>
-            <ReviewTile
-              key={index}
-              review={review}
-            />
-          )}
+          {console.log("display2", this.state.display)}
+          {/* {console.log("state", this.state)} */}
+          {this.state.display.map((review, index) => (
+            <ReviewTile key={Math.random() * 10000 }review={review}/>
+          ))}
         </ReviewTiles_Container>
 
         <Buttons_Container>
-          {MoreReview}
+          {this.buttonRender()}
           <Button>
             Add a review +
           </Button>
         </Buttons_Container>
-
-
         <WriteReview />
-
       </ReviewList_div>
     );
   }
