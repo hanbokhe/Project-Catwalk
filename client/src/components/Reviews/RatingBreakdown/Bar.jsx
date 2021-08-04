@@ -50,6 +50,7 @@ class Bar extends React.Component {
   }
 
   render() {
+
     const Bar_div = styled.div `
     width: ${this.state.breakdown[2]}%;
     height: 14px;

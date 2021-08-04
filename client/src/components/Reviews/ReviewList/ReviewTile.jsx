@@ -97,13 +97,13 @@ class ReviewTile extends React.Component {
     super(props);
     this.state = {
       id: 0,
-      starRating: 4,
+      starRating: 0,
       date: 0,
       reviewSummary: 'abc',
       reviewBody: 'def',
       photos: [],
       recommend: true,
-      reviwerName: 'username',
+      reviewerName: 'username',
       response: 'internal response team',
       helpfulness: 0,
       voted: false
@@ -112,6 +112,7 @@ class ReviewTile extends React.Component {
     this.putHelpfullness = this.putHelpfullness.bind(this);
     this.handleReport = this.handleReport.bind(this);
   }
+
 
   componentDidMount() {
     this.setState({
@@ -122,11 +123,12 @@ class ReviewTile extends React.Component {
       reviewBody: this.props.review.body,
       photos: this.props.review.photos,
       recommend: this.props.review.recommend,
-      reviwerName: this.props.review.reviewer_name,
+      reviewerName: this.props.review.reviewer_name,
       response: this.props.review.response,
       helpfulness: this.props.review.helpfulness
     });
   }
+
 
   putHelpfullness(id) {
     axios({
@@ -140,7 +142,6 @@ class ReviewTile extends React.Component {
 
   handleVoteYes() {
     if (!this.state.voted) {
-      // var countVote = this.state.helpfulness
       this.setState((state) => {
         return {
           helpfulness: state.helpfulness + 1,
@@ -175,7 +176,7 @@ class ReviewTile extends React.Component {
           <Stars rating={`${this.state.starRating * 20}%`} />
 
           <Username_Date_Container>
-            <div>{this.state.reviwerName}, {formattedDate}</div>
+            <div>{this.state.reviewerName}, {formattedDate}</div>
           </Username_Date_Container>
         </Start_Info_Container>
 
