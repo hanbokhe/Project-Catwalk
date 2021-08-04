@@ -130,10 +130,6 @@ class ReviewList extends React.Component {
     }
   }
 
-  // console.log("reviewList", this.state.reviewList);
-  // console.log("display", this.state.display);
-  // console.log("props", this.props);
-
   render() {
     return (
       <ReviewList_div>
