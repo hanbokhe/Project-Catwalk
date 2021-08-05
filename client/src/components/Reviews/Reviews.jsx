@@ -20,20 +20,13 @@ class Reviews extends React.Component {
     super(props);
     this.filterStar = this.filterStar.bind(this);
     this.state = {
-      filterStar: 0
+      filterStar: [0, false]
     };
   }
 
-  // static getDerivedStateFromProps(props, state) {
-  //   return {
-  //     filterStar: props.toFilter
-  //   };
-  // }
-
-  filterStar(star) {
-    console.log("star", star);
+  filterStar(star, isClick) {
     this.setState({
-      filterStar: star
+      filterStar: [star, isClick]
     });
   }
 
@@ -42,7 +35,7 @@ class Reviews extends React.Component {
       <Container>
         <p>RATING & REVIEWS</p>
         <ReViewsContainer>
-          <RatingBreakdown filterStar={this.filterStar}/>
+          <RatingBreakdown currentProductId={this.props.currentProductId} filterStar={this.filterStar}/>
           <ReviewList filterStar={this.state.filterStar}currentProductId={this.props.currentProductId}/>
         </ReViewsContainer>
       </Container>
