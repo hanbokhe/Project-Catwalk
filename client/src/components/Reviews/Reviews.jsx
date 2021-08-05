@@ -24,11 +24,10 @@ class Reviews extends React.Component {
     };
   }
 
-  filterStar(star) {
-    var isClick = this.state.filterStar[1];
-    console.log(isClick);
+  filterStar(star, isClick) {
+    console.log("isClick", isClick),
     this.setState({
-      filterStar: [star, !isClick]
+      filterStar: [star, isClick]
     });
   }
 

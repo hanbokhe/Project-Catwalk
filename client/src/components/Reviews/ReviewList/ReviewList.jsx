@@ -45,7 +45,9 @@ class ReviewList extends React.Component {
       reviewList: [],
       display: [],
       reviewCount: 4,
-      filterStar: 0
+      // filterStar: [["0", false]]
+      filterStar:["0", false]
+
     };
     this.getReviews = this.getReviews.bind(this);
     this.handleMoreReview = this.handleMoreReview.bind(this);
@@ -54,6 +56,23 @@ class ReviewList extends React.Component {
   }
 
   static getDerivedStateFromProps(props, state) {
+    // var rating = props.filterStar[0];
+    // var prevFilterStar = state.filterStar;
+
+    // var isRemove = false;
+    // for (var i = 0; i < prevFilterStar.length; i++) {
+    //   if ((prevFilterStar[i][0]) === rating) {
+    //     prevFilterStar.splice(i, 1);
+    //     isRemove = true;
+    //   }
+    // }
+    // if (!isRemove) {
+    //   prevFilterStar.push([rating, props.filterStar[1]]);
+    // }
+
+    // return {
+    //   filterStar: prevFilterStar
+    // };
     return {
       filterStar: props.filterStar
     };
@@ -71,13 +90,14 @@ class ReviewList extends React.Component {
   }
 
   filterReview(arrayReview, star, callback) {
+    console.log("star", star);
     var toReturn = [];
     for (var i = 0; i < arrayReview.length; i++) {
       if (arrayReview[i].rating === parseInt(star)) {
         toReturn.push(arrayReview[i]);
       }
     }
-    console.log("toReturn", toReturn);
+
     callback(toReturn);
   }
 
@@ -104,16 +124,35 @@ class ReviewList extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     var filterStarChange = this.state.filterStar[0] !== prevState.filterStar[0];
-    var isClickChange = this.state.filterStar[1] !== prevState.filterStar[1];
+    var clickChange = this.state.filterStar[1] !== prevState.filterStar[1];
+    // var isStarClick = this.state.starClick !== prevState.starClick;
+  //   console.log("state", this.state.filterStar);
+  //   console.log("prev", prevState.filterStar);
+  //   var addFilterStar = this.state.filterStar.length !== prevState.filterStar.length;
+  //   console.log(prevProps);
+  //   console.log(addFilterStar);
+  //   var recentStar = this.state.filterStar.slice(-1)[0][0];
+  //   console.log("recentStar", recentStar);
+  //   if (addFilterStar) {
+  //     this.filterReview(this.state.masterList, recentStar, (data) => {
+  //       this.setState({
+  //         reviewList: prevState.filterStar.push(...data),
+  //         display: prevState.filterStar.push(...data).slice(0, 2)
+  //       });
+  //     });
+  //   }
+  // }
+
 
     if (filterStarChange) {
-      this.filterReview(this.state.masterList, this.state.filterStar, (data) => {
+
+      this.filterReview(this.state.masterList, this.state.filterStar[0], (data) => {
         this.setState({
           reviewList: data,
-          display: data.slice(0, 2),
+          display: data.slice(0, 2)
         });
       });
-    } else if (isClickChange && this.state.filterStar[1] === false) {
+    } else if (!filterStarChange && clickChange) {
       console.log("Did I click?");
       this.setState({
         reviewList: this.state.masterList,
@@ -122,6 +161,7 @@ class ReviewList extends React.Component {
     }
 
   }
+
 
   componentDidMount() {
     this.getReviews(this.props.currentProductId);
@@ -140,6 +180,7 @@ class ReviewList extends React.Component {
 
   render() {
     return (
+      console.log(this.state.filterStar),
       <ReviewList_div>
         <TotalSort />
         <ReviewTiles_Container>
