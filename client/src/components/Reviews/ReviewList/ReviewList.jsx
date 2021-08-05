@@ -45,7 +45,7 @@ class ReviewList extends React.Component {
       reviewList: [],
       display: [],
       reviewCount: 4,
-      filterStar: 0
+      filterStar: ["0", false]
     };
     this.getReviews = this.getReviews.bind(this);
     this.handleMoreReview = this.handleMoreReview.bind(this);
@@ -77,7 +77,7 @@ class ReviewList extends React.Component {
         toReturn.push(arrayReview[i]);
       }
     }
-    console.log("toReturn", toReturn);
+
     callback(toReturn);
   }
 
@@ -103,14 +103,21 @@ class ReviewList extends React.Component {
 
 
   componentDidUpdate(prevProps, prevState) {
-    var filterStarChange = this.state.filterStar !== prevState.filterStar;
+    var filterStarChange = this.state.filterStar[0] !== prevState.filterStar[0];
+    var clickChange = this.state.filterStar[1] !== prevState.filterStar[1];
+
     if (filterStarChange) {
-      this.filterReview(this.state.masterList, this.state.filterStar, (data) => {
+
+      this.filterReview(this.state.masterList, this.state.filterStar[0], (data) => {
         this.setState({
           reviewList: data,
-          display: data.slice(0, 2),
-        //filterStar: this.state.filterStar
+          display: data.slice(0, 2)
         });
+      });
+    } else if (!filterStarChange && clickChange) {
+      this.setState({
+        reviewList: this.state.masterList,
+        display: this.state.masterList.slice(0, 2)
       });
     }
   }
@@ -135,8 +142,6 @@ class ReviewList extends React.Component {
       <ReviewList_div>
         <TotalSort />
         <ReviewTiles_Container>
-          {console.log("display2", this.state.display)}
-          {/* {console.log("state", this.state)} */}
           {this.state.display.map((review, index) => (
             <ReviewTile key={Math.random() * 10000 }review={review}/>
           ))}
