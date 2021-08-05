@@ -19,7 +19,7 @@ padding-bottom: 8px;
 width: 100%;
 &:hover {
   cursor: pointer;
-  background-color: #777777;
+  background-color: lightgray;
 }
 `;
 
@@ -40,16 +40,21 @@ class Bar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      breakdown: props.breakdown
+      breakdown: props.breakdown,
+      isClick: false
     };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
-    this.props.filterStar(this.state.breakdown[0]);
+    this.props.filterStar(this.state.breakdown[0], !this.state.isClick);
+    this.setState((state) => ({
+      isClick: !state.isClick
+    }));
   }
 
   render() {
+
     const Bar_div = styled.div `
     width: ${this.state.breakdown[2]}%;
     height: 14px;
