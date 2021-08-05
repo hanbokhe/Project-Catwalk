@@ -40,13 +40,17 @@ class Bar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      breakdown: props.breakdown
+      breakdown: props.breakdown,
+      isClick: false
     };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
-    this.props.filterStar(this.state.breakdown[0]);
+    this.props.filterStar(this.state.breakdown[0], !this.state.isClick);
+    this.setState((state) => ({
+      isClick: !state.isClick
+    }));
   }
 
   render() {

@@ -20,14 +20,13 @@ class Reviews extends React.Component {
     super(props);
     this.filterStar = this.filterStar.bind(this);
     this.state = {
-      filterStar: 0
+      filterStar: [0, false]
     };
   }
 
-  filterStar(star) {
-    console.log("star", star);
+  filterStar(star, isClick) {
     this.setState({
-      filterStar: star
+      filterStar: [star, isClick]
     });
   }
 
