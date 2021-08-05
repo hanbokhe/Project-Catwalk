@@ -103,16 +103,24 @@ class ReviewList extends React.Component {
 
 
   componentDidUpdate(prevProps, prevState) {
-    var filterStarChange = this.state.filterStar !== prevState.filterStar;
+    var filterStarChange = this.state.filterStar[0] !== prevState.filterStar[0];
+    var isClickChange = this.state.filterStar[1] !== prevState.filterStar[1];
+
     if (filterStarChange) {
       this.filterReview(this.state.masterList, this.state.filterStar, (data) => {
         this.setState({
           reviewList: data,
           display: data.slice(0, 2),
-        //filterStar: this.state.filterStar
         });
       });
+    } else if (isClickChange && this.state.filterStar[1] === false) {
+      console.log("Did I click?");
+      this.setState({
+        reviewList: this.state.masterList,
+        display: this.state.masterList.slice(0, 2)
+      });
     }
+
   }
 
   componentDidMount() {
@@ -135,8 +143,6 @@ class ReviewList extends React.Component {
       <ReviewList_div>
         <TotalSort />
         <ReviewTiles_Container>
-          {console.log("display2", this.state.display)}
-          {/* {console.log("state", this.state)} */}
           {this.state.display.map((review, index) => (
             <ReviewTile key={Math.random() * 10000 }review={review}/>
           ))}
