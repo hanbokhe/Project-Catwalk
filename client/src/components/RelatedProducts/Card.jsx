@@ -149,7 +149,7 @@ const Card = ({style, product, isOutfit}) => {
         <Img_div>
         {
           photo ?
-            <Img src={photo} onClick={imgClick}/>
+            <Img src={photo} onClick={imgClick} alt={product.description}/>
             : null
         }
         </Img_div>
