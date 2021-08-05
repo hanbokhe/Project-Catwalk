@@ -46,7 +46,7 @@ font-size: 16px;
 
 const Response_Container = styled.div`
 display: flex;
-background-color: #d3d3d3;
+background-color: lightgray;
 height:80px;
 align-items: center
 `;
@@ -66,6 +66,30 @@ flex-direction: row;
 font-size: 16px;
 `;
 
+const Yes_Container = styled.div`
+.yes {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+};
+
+&:hover .yes {
+  color: green;
+}
+`;
+
+const Report_Container = styled.div`
+.report {
+  text-decoration: none;
+  font-weight: bold;
+  color: black
+};
+
+&:hover .report {
+  color: red;
+}
+`;
+
 
 
 class ReviewTile extends React.Component {
@@ -73,13 +97,13 @@ class ReviewTile extends React.Component {
     super(props);
     this.state = {
       id: 0,
-      starRating: 4,
+      starRating: 0,
       date: 0,
       reviewSummary: 'abc',
       reviewBody: 'def',
       photos: [],
       recommend: true,
-      reviwerName: 'username',
+      reviewerName: 'username',
       response: 'internal response team',
       helpfulness: 0,
       voted: false
@@ -88,6 +112,7 @@ class ReviewTile extends React.Component {
     this.putHelpfullness = this.putHelpfullness.bind(this);
     this.handleReport = this.handleReport.bind(this);
   }
+
 
   componentDidMount() {
     this.setState({
@@ -98,11 +123,12 @@ class ReviewTile extends React.Component {
       reviewBody: this.props.review.body,
       photos: this.props.review.photos,
       recommend: this.props.review.recommend,
-      reviwerName: this.props.review.reviewer_name,
+      reviewerName: this.props.review.reviewer_name,
       response: this.props.review.response,
       helpfulness: this.props.review.helpfulness
     });
   }
+
 
   putHelpfullness(id) {
     axios({
@@ -116,7 +142,6 @@ class ReviewTile extends React.Component {
 
   handleVoteYes() {
     if (!this.state.voted) {
-      // var countVote = this.state.helpfulness
       this.setState((state) => {
         return {
           helpfulness: state.helpfulness + 1,
@@ -151,7 +176,7 @@ class ReviewTile extends React.Component {
           <Stars rating={`${this.state.starRating * 20}%`} />
 
           <Username_Date_Container>
-            <div>{this.state.reviwerName}, {formattedDate}</div>
+            <div>{this.state.reviewerName}, {formattedDate}</div>
           </Username_Date_Container>
         </Start_Info_Container>
 
@@ -189,17 +214,17 @@ class ReviewTile extends React.Component {
         <Helpful_div>
           <div>Helpful?</div>
 
-          <div>
-            <a href="#1" onClick={this.handleVoteYes}>Yes</a> ({this.state.helpfulness})
-          </div>
+          <Yes_Container>
+            <a className='yes' href="#1" onClick={this.handleVoteYes}>Yes</a> ({this.state.helpfulness})
+          </Yes_Container>
 
           <div>
             |
           </div>
 
-          <div>
-            <a href="#2" onClick={this.handleReport}>Report</a>
-          </div>
+          <Report_Container>
+            <a className="report" href="#2" onClick={this.handleReport}>Report</a>
+          </Report_Container>
 
         </Helpful_div>
 

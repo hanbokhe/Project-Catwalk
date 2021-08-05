@@ -21,7 +21,7 @@ object-fit: contain;
 
 
 const App = (props) => {
-  const [currentProductId, setCurrentProduct] = useState(25171);
+  const [currentProductId, setCurrentProduct] = useState(25192);
 
   return (
     <Container>
@@ -29,7 +29,7 @@ const App = (props) => {
       <Img src={'./Overview.jpg'}/>
       <RelatedProduct currentProductId={currentProductId} />
       <QA currentProductId={currentProductId} />
-      <Reviews />
+      <Reviews currentProductId={currentProductId}/>
     </Container>
   );
 };
@@ -38,3 +38,6 @@ export default App;
 
 //25167
 //25170
+
+//25173
+//25193

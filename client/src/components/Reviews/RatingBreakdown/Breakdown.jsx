@@ -36,5 +36,4 @@ class Breakdown extends React.Component {
   }
 }
 
-
 export default Breakdown;
