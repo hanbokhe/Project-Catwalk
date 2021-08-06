@@ -11,7 +11,7 @@ justify-content: space-between;
 `
 const Logo = styled.img`
 height: 80px;
-width: auto;
+width: 111.89px;
 object-fit: cover;
 `
 
