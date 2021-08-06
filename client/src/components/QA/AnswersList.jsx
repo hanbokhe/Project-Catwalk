@@ -65,7 +65,7 @@ const AnswersList = ({answers}) => {
   return (
     <A_container>
       {displayA.map(answer => (
-          <Answer answer={answer}/>
+          <Answer answer={answer} key={answer[0]}/>
         ))
       }
       {

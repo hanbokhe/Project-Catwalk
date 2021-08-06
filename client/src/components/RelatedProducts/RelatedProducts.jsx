@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import Carousel from './Carousel.jsx';
 import axios from 'axios';
 import RelatedContext from './RelatedContext.jsx';
@@ -125,28 +125,34 @@ const RelatedProduct = ({currentProductId}) => {
     }
   }
 
+  const renderLoader = () => (
+    <div>Loading</div>
+  )
+
   return (
-    <Container>
-      <RelatedContext.Provider value={{addOutfit, deleteOutfit, setImgClicked, setComparedInfo}}>
-        {
-          imgClicked ?
-          <ModalContainer>
-            <Modal comparedInfo={comparedInfo} currProduct={currProduct} currReviews={currReviews}/>
-          </ModalContainer>
-          : null
-        }
-        {
-          loaded ?
-          <div>
-            <h4>Related Products</h4>
-            <Carousel productInfo={displayProducts} isOutfit={false} />
-            <h4>Outfit</h4>
-            <Carousel productInfo={displayOutfit} isOutfit={true}/>
-          </div>
-          : <div>Page Loading</div>
-        }
-      </RelatedContext.Provider>
-    </Container>
+    <Suspense fallback-={renderLoader}>
+      <Container>
+        <RelatedContext.Provider value={{addOutfit, deleteOutfit, setImgClicked, setComparedInfo}}>
+          {
+            imgClicked ?
+            <ModalContainer>
+              <Modal comparedInfo={comparedInfo} currProduct={currProduct} currReviews={currReviews}/>
+            </ModalContainer>
+            : null
+          }
+          {
+            loaded ?
+            <div>
+              <h4>Related Products</h4>
+              <Carousel productInfo={displayProducts} isOutfit={false} />
+              <h4>Outfit</h4>
+              <Carousel productInfo={displayOutfit} isOutfit={true}/>
+            </div>
+            : <div>Page Loading</div>
+          }
+        </RelatedContext.Provider>
+      </Container>
+    </Suspense>
   )
 }
 

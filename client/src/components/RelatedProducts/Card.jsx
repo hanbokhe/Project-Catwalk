@@ -80,14 +80,8 @@ const Card = ({style, product, isOutfit}) => {
     }
   }
 
-  const getAvg = (product_id) => {
-    axios({
-      method: 'GET',
-      url: '/reviews/meta',
-      params: {
-        product_id: product_id
-      }
-    })
+  const getAvg = (id) => {
+    axios.get('/related/stars/${id}')
       .then(({data}) => {
         var rating = data.ratings;
         var count = 0;

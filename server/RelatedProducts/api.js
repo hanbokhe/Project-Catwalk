@@ -35,12 +35,27 @@ const getProducts = (id) => {
       'Authorization': `${TOKEN}`
     }
   }
-    return axios(options);
+  return axios(options);
 }
+
+const getMetaReviews = (id) => {
+  var options = {
+    method: 'get',
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/reviews/meta',
+    params: {
+      product_id: id
+    },
+    headers: {
+      'Authorization': `${TOKEN}`
+    }
+  }
+  return axios(options);
+};
 
 
 module.exports = {
   getRelated,
   getStyles,
-  getProducts
+  getProducts,
+  getMetaReviews
 }
