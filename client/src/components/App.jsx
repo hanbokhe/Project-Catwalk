@@ -27,7 +27,7 @@ const App = (props) => {
     <Container>
       <Header/>
       <Img src={'./Overview.jpg'}/>
-      <RelatedProduct currentProductId={currentProductId} />
+      <RelatedProduct currentProductId={25171} />
       <QA currentProductId={currentProductId} />
       <Reviews currentProductId={currentProductId}/>
     </Container>

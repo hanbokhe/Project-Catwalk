@@ -81,7 +81,7 @@ const Carousel = ({productInfo, isOutfit, addOutfit}) => {
               <div>Add To Outfit</div>
             </BlankCard>
             : productInfo.map( ({style, product}) => (
-                <Card product={product} style={style} isOutfit={isOutfit} />
+                <Card product={product} style={style} isOutfit={isOutfit} key={product.id} />
             ))
           }
         </Inner_div>
