@@ -13,42 +13,56 @@ app.use(express.json());
 
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
-})
+});
 
 app.get('/reviews', (req, res) => {
-  var id = req.query.product_id
+  var id = req.query.product_id;
   reviews.getReviews(id)
-      .then((data) => {
-        res.status(200).send(data.data);
-      })
-      .catch((err) => {
-        res.status(404).send(err)
-      })
-})
+    .then((data) => {
+      res.status(200).send(data.data);
+    })
+    .catch((err) => {
+      res.status(404).send(err);
+    });
+});
 
 app.get('/reviews/meta', (req, res) => {
-  var id = req.query.product_id
+  var id = req.query.product_id;
+  console.log("product id 2", id);
   reviews.getMetaReviews(id)
     .then((data) => {
       res.status(200).send(data.data);
     })
     .catch((err) => {
-      res.status(404).send(err)
+      res.status(404).send(err);
+    });
+});
+
+app.put('/reviews/:review_id/helpful', (req, res) => {
+  console.log("params", req.params);
+  var review_id = req.params.review_id;
+  console.log("review_id", review_id);
+  reviews.putHelpfullness(review_id)
+    .then((data) => {
+      res.status(200).send(data.data);
     })
-})
+    .catch((err) => {
+      res.status(404).send(err);
+    });
+});
 
 app.get('/products/:id', (req, res) => {
   var {id} = req.params;
 
   relatedProducts.getProducts(id)
-      .then(({data}) => {
-          res.status(200).send(data);
-      })
-      .catch((err) => {
-        console.log(err)
-          res.status(404).send(err);
-      })
-})
+    .then(({data}) => {
+      res.status(200).send(data);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(404).send(err);
+    });
+});
 
 app.get('/related/:id', (req, res) => {
   //console.log('Related Products', req.params);
