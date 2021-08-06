@@ -83,7 +83,7 @@ const Card = ({style, product, isOutfit}) => {
   const getAvg = (product_id) => {
     axios({
       method: 'GET',
-      url: 'http://localhost:3000/reviews/meta',
+      url: '/reviews/meta',
       params: {
         product_id: product_id
       }
