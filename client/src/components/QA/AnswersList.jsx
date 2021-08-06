@@ -1,6 +1,11 @@
-import React, {useState, useEffect} from 'react';
-import Answer from "./Answer.jsx";
+import React, {useState, useEffect, lazy, Suspense} from 'react';
 import styled from 'styled-components';
+
+//import Answer from "./Answer.jsx";
+import Loading from '../Loading.jsx';
+
+const Answer = lazy(() => import('./Answer.jsx'));
+
 
 const A_container = styled.div`
 width: 100%;
@@ -63,15 +68,17 @@ const AnswersList = ({answers}) => {
   }
 
   return (
-    <A_container>
-      {displayA.map(answer => (
-          <Answer answer={answer} key={answer[0]}/>
-        ))
-      }
-      {
-        Abutton()
-      }
-    </A_container>
+    <Suspense fallback={<Loading/>}>
+      <A_container>
+        {displayA.map(answer => (
+            <Answer answer={answer} key={answer[0]}/>
+          ))
+        }
+        {
+          Abutton()
+        }
+      </A_container>
+    </Suspense>
   )
 }
 

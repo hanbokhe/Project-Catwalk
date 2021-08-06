@@ -1,6 +1,10 @@
-import React, {useState, useEffect} from 'react';
-import AnswersList from "./AnswersList.jsx";
+import React, {useState, useEffect, lazy, Suspense} from 'react';
 import styled from 'styled-components';
+
+import Loading from '../Loading.jsx';
+//import AnswersList from "./AnswersList.jsx";
+
+const AnswersList = lazy(() => import('./AnswersList.jsx'));
 
 const Q_div = styled.div`
 width: 100%;
@@ -42,7 +46,7 @@ const Question = ({question}) => {
   }, [answers])
 
   return (
-    <>
+    <Suspense fallback={<Loading/>}>
       <Q_div>
         <Q_title>
           Q: <> </> {question.question_body}
@@ -52,7 +56,7 @@ const Question = ({question}) => {
         </Add_span>
       </Q_div>
       <AnswersList answers={sortedAnswers}/>
-    </>
+    </Suspense>
   )
 
 }

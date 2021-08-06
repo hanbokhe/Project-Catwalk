@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Header_div = styled.div`
 background-color: black;
 height: 80px;
-width: 100%;
+width: 2020px;
 display: flex;
 flex-direction: row;
 justify-content: space-between;
@@ -18,7 +18,7 @@ object-fit: cover;
 const Header = () => {
   return (
     <Header_div>
-      <Logo src={`./nike_logo.jpg`}/>
+      <Logo src={`./nike_logo.jpg`} alt={"logo"}/>
     </Header_div>
   )
 }

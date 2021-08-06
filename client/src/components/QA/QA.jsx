@@ -1,8 +1,12 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useState, useEffect, useContext, lazy, Suspense} from 'react';
 import axios from 'axios';
-import Search from './Search.jsx';
-import QuestionsList from './QuestionsList.jsx';
 import styled from 'styled-components';
+
+import Loading from '../Loading.jsx';
+//import QuestionsList from './QuestionsList.jsx';
+
+const QuestionsList = lazy(() => import('./QuestionsList.jsx'));
+
 
 const Container = styled.div`
 width: 60%;
@@ -46,15 +50,17 @@ const QA = ({currentProductId}) => {
     }, [sortedQuestions])
 
   return (
-    <Container>
-      <h4>Questions and Answers</h4>
-      <Accordian>
-        {loaded ?
-          <QuestionsList questions={sortedQuestions}/>
-          : <div>QA Loading</div>
-        }
-      </Accordian>
-    </Container>
+    <Suspense fallback={<Loading/>}>
+      <Container>
+        <h4>Questions and Answers</h4>
+        <Accordian>
+          {loaded ?
+            <QuestionsList questions={sortedQuestions}/>
+            : <div>QA Loading</div>
+          }
+        </Accordian>
+      </Container>
+    </Suspense>
   )
 }
 
