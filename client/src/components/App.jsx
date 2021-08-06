@@ -26,16 +26,15 @@ height: 742px;
 object-fit: contain;
 `
 
-
 const App = (props) => {
   const [currentProductId, setCurrentProduct] = useState(25192);
 
   return (
     <Router>
       <Container>
-        <Header/>
-        <Img src={'./Overview.jpg'} alt={'Product Details'}/>
         <Suspense fallback={<Loading/>}>
+          <Header/>
+          <Img src={'./Overview.jpg'} alt={'Product Details'}/>
           <Switch>
             <RelatedProduct currentProductId={25171} />
             <QA currentProductId={currentProductId} />
@@ -51,7 +50,6 @@ export default App;
 
 //25167
 //25170
-
 //25173
 //25193
 

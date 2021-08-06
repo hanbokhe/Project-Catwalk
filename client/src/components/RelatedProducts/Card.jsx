@@ -137,8 +137,8 @@ const Card = ({style, product, isOutfit}) => {
         <Card_div>
           {
             isOutfit?
-              <X onClick={deleteClick} className={"fas fa-times"} ></X>
-              : <Heart onClick={addClick} className={"far fa-heart"} ></Heart>
+              <X onClick={deleteClick} >X</X>
+              : <Heart onClick={addClick} >&#10084;</Heart>
           }
           <Img_div>
           {
@@ -157,3 +157,6 @@ const Card = ({style, product, isOutfit}) => {
 export default Card;
 
 //className={hover ? "fas fa-heart" : "far fa-heart"} onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)}
+
+//className={"far fa-heart"}
+//className={"fas fa-times"}
