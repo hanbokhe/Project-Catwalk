@@ -1,7 +1,10 @@
-import React, {useState, useEffect} from 'react';
-import Details from './Details.jsx';
-import Card from './Card.jsx';
+import React, {useState, useEffect, lazy, Suspense} from 'react';
 import styled from 'styled-components';
+
+import Loading from '../Loading.jsx';
+//import Card from './Card.jsx';
+
+const Card = lazy(() => import('./Card.jsx'));
 
 const Container = styled.div`
 width: 100%;
@@ -9,7 +12,7 @@ display: flex;
 flex-direction: row;
 align-items: center;
 justify-content: center;
-`;
+`
 
 const Carousel_div = styled.div`
 width: 1000px;
@@ -25,7 +28,7 @@ transition: transform 0.3s;
 display: flex;
 flex-direction: row;
 justify-content: start;
-`;
+`
 
 const Arrow_button = styled.button`
 height: 20px;
@@ -65,36 +68,39 @@ const Carousel = ({productInfo, isOutfit, addOutfit}) => {
   }
 
   return (
-    <Container>
-      <Arrow_button
-          onClick={() => {
-            updateIndex(activeIndex - 1)
+    <Suspense fallback={<Loading/>}>
+      <Container>
+        <Arrow_button
+            onClick={(e) => {
+              e.preventDefault();
+              updateIndex(activeIndex - 1)
+            }}
+            disabled={productInfo.length < 4 || activeIndex <= 0}
+            >&lt;
+        </Arrow_button>
+        <Carousel_div>
+          <Inner_div style={{transform: `translateX(-${activeIndex * 25}%)`}}>
+            { productInfo.length === 0 && isOutfit ?
+              <BlankCard>
+                <div> + </div>
+                <div>Add To Outfit</div>
+              </BlankCard>
+              : productInfo.map( ({style, product}) => (
+                  <Card product={product} style={style} isOutfit={isOutfit} key={product.id} />
+              ))
+            }
+          </Inner_div>
+        </Carousel_div>
+        <Arrow_button
+          onClick={(e) => {
+            e.preventDefault();
+            updateIndex(activeIndex + 1)
           }}
-          disabled={productInfo.length < 4 || activeIndex <= 0}
-          >&lt;
-      </Arrow_button>
-      <Carousel_div>
-        <Inner_div style={{transform: `translateX(-${activeIndex * 25}%)`}}>
-          { productInfo.length === 0 && isOutfit ?
-            <BlankCard>
-              <div> + </div>
-              <div>Add To Outfit</div>
-            </BlankCard>
-            : productInfo.map( ({style, product}) => (
-                <Card product={product} style={style} isOutfit={isOutfit} key={product.id} />
-            ))
-          }
-        </Inner_div>
-      </Carousel_div>
-      <Arrow_button
-        onClick={() => {
-          updateIndex(activeIndex + 1)
-
-        }}
-        disabled={productInfo.length < 4 || activeIndex >= productInfo.length-4}
-        >&gt;
-      </Arrow_button>
-    </Container>
+          disabled={productInfo.length < 4 || activeIndex >= productInfo.length-4}
+          >&gt;
+        </Arrow_button>
+      </Container>
+    </Suspense>
   )
 }
 

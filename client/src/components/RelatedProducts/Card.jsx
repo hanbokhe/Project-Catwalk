@@ -1,9 +1,14 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useState, useEffect, useContext, lazy, Suspense} from 'react';
 import axios from 'axios';
-import Details from './Details.jsx';
 import RelatedContext from './RelatedContext.jsx';
 import styled from 'styled-components';
 
+import Loading from '../Loading.jsx';
+//import CardImg from './CardImg.jsx';
+//import Details from './Details.jsx';
+
+const CardImg = lazy(() => import('./CardImg.jsx'));
+const Details = lazy(() => import('./Details.jsx'));
 
 const Card_div = styled.div`
 height: 400px;
@@ -17,13 +22,7 @@ height: 315px;
 width: 250px;
 overflow: hidden;
 `
-const Img = styled.img`
-height: 315px;
-width: 250px;
-z-index: -1;
-overflow: hidden;
-object-fit: cover;
-`
+
 const Heart = styled.button`
 position: absolute;
 height: 20px;
@@ -133,26 +132,31 @@ const Card = ({style, product, isOutfit}) => {
   }
 
   return (
-    <React.Fragment>
-      <Card_div>
-        {
-          isOutfit?
-            <X onClick={deleteClick} className={"fas fa-times"}/>
-            : <Heart onClick={addClick} className={"far fa-heart"} />
-        }
-        <Img_div>
-        {
-          photo ?
-            <Img src={photo} onClick={imgClick} alt={product.description}/>
-            : null
-        }
-        </Img_div>
-        <Details defaultStyle={defaultItem} product={product} average={average}/>
-      </Card_div>
-    </React.Fragment>
+    <Suspense fallback={<Loading/>}>
+      <React.Fragment>
+        <Card_div>
+          {
+            isOutfit?
+              <X onClick={deleteClick} >X</X>
+              : <Heart onClick={addClick} >&#10084;</Heart>
+          }
+          <Img_div>
+          {
+            photo ?
+              <CardImg photo={photo} imgClick={imgClick} description={product.description}/>
+              : null
+          }
+          </Img_div>
+          <Details defaultStyle={defaultItem} product={product} average={average}/>
+        </Card_div>
+      </React.Fragment>
+    </Suspense>
   )
 }
 
 export default Card;
 
 //className={hover ? "fas fa-heart" : "far fa-heart"} onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)}
+
+//className={"far fa-heart"}
+//className={"fas fa-times"}
