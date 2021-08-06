@@ -1,8 +1,0 @@
-import React from 'react';
-
-const RelatedProduct = () => {
-  return /*#__PURE__*/React.createElement("div", null, "Hello World");
-};
-
-export default RelatedProduct;
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2NsaWVudC9zcmMvY29tcG9uZW50cy9SZWxhdGVkIFByb2R1Y3RzL1JlbGF0ZWRQcm9kdWN0cy5qc3giXSwibmFtZXMiOlsiUmVhY3QiLCJSZWxhdGVkUHJvZHVjdCJdLCJtYXBwaW5ncyI6IkFBQUEsT0FBT0EsS0FBUCxNQUFrQixPQUFsQjs7QUFFQSxNQUFNQyxjQUFjLEdBQUcsTUFBTTtBQUMzQixzQkFDRSwrQ0FERjtBQUtELENBTkQ7O0FBUUEsZUFBZUEsY0FBZiIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5cbmNvbnN0IFJlbGF0ZWRQcm9kdWN0ID0gKCkgPT4ge1xuICByZXR1cm4gKFxuICAgIDxkaXY+XG4gICAgICBIZWxsbyBXb3JsZFxuICAgIDwvZGl2PlxuICApXG59XG5cbmV4cG9ydCBkZWZhdWx0IFJlbGF0ZWRQcm9kdWN0OyJdfQ==

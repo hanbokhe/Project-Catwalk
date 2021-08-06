@@ -4,13 +4,14 @@ import styled from 'styled-components';
 const Header_div = styled.div`
 background-color: black;
 height: 80px;
-width: 100%;
+width: auto;
 display: flex;
 flex-direction: row;
 justify-content: space-between;
 `
 const Logo = styled.img`
-height: 100%;
+height: 80px;
+width: auto;
 object-fit: cover;
 `
 
