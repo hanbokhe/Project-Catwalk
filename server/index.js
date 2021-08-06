@@ -87,6 +87,20 @@ app.get('/related/:id', (req, res) => {
     });
 });
 
+app.get('/related/stars/:id', (req, res) => {
+  //console.log('Related Products', req.params);
+  var {id} = req.params;
+
+  relatedProducts.getMetaReviews(id)
+    .then(({data}) => {
+      //console.log(data);
+      res.status(200).send(data);
+    })
+    .catch((err) => {
+      res.status(404).send(err);
+    })
+})
+
 app.get('/styles/:id', (req, res) => {
   //console.log('Related Products', req.params);
   var {id} = req.params;
@@ -104,7 +118,7 @@ app.get('/styles/:id', (req, res) => {
 
 app.get('/qa/questions/:id', (req, res) => {
   var {id} = req.params;
-  console.log(id);
+  //console.log(id);
   qa.getQuestions(id)
     .then(({data}) => {
       res.status(200).send(data);
