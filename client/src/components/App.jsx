@@ -26,11 +26,11 @@ const App = (props) => {
 
   return (
     <Container>
-      {/* <Header/>
-      <Img src={'./Overview.jpg'}/> */}
+      <Header/>
+      <Img src={'./Overview.jpg'}/>
       <RelatedProduct currentProductId={25171} />
-      {/* <QA currentProductId={currentProductId} /> */}
-      {/* <Reviews currentProductId={currentProductId}/> */}
+      <QA currentProductId={currentProductId} />
+      <Reviews currentProductId={currentProductId}/>
     </Container>
   );
 };
