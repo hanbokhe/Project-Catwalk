@@ -38,7 +38,7 @@ const App = (props) => {
           <Switch>
             <RelatedProduct currentProductId={25171} />
             <QA currentProductId={currentProductId} />
-            {/* <Reviews currentProductId={currentProductId}/> */}
+            <Reviews currentProductId={currentProductId}/>
           </Switch>
         </Suspense>
       </Container>
