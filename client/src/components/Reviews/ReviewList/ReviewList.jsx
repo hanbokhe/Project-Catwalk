@@ -84,7 +84,7 @@ class ReviewList extends React.Component {
   getReviews(id) {
     axios({
       method: 'get',
-      url: 'http://localhost:3000/reviews',
+      url: '/reviews',
       params: {
         product_id: id
       }

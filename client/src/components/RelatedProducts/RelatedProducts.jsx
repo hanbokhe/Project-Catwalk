@@ -61,7 +61,7 @@ const RelatedProduct = ({currentProductId}) => {
     try {
       let options = {
         method: 'GET',
-        url: 'http://localhost:3000/reviews/meta',
+        url: '/reviews/meta',
         params: {
           product_id: product_id
         }
