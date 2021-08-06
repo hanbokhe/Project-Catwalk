@@ -81,7 +81,7 @@ const Card = ({style, product, isOutfit}) => {
   }
 
   const getAvg = (id) => {
-    axios.get('/related/stars/${id}')
+    axios.get(`/related/stars/${id}`)
       .then(({data}) => {
         var rating = data.ratings;
         var count = 0;
