@@ -132,7 +132,7 @@ class ReviewTile extends React.Component {
 
   putHelpfullness(review_id) {
     axios.put(`/reviews/${review_id}/helpful`)
-      .then(console.log("helpfulness updated"))
+      .then(console.log('helpfulness updated'))
       .catch((err) => console.error(err));
   }
 
@@ -152,13 +152,9 @@ class ReviewTile extends React.Component {
 
   handleReport() {
     var review_id = this.props.review.review_id;
-    axios({
-      method: 'put',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/reviews/${review_id}/report`,
-      headers: {
-        'Authorization': TOKEN.TOKEN
-      }
-    });
+    axios.put(`/reviews/${review_id}/report`)
+      .then(console.log('reported'))
+      .catch((err) => console.error(err));
   }
 
   render() {
