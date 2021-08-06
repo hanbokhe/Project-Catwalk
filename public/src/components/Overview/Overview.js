@@ -1,8 +1,0 @@
-import React from 'react';
-
-const Overview = () => {
-  return /*#__PURE__*/React.createElement("div", null, "Overview");
-};
-
-export default Overview;
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2NsaWVudC9zcmMvY29tcG9uZW50cy9PdmVydmlldy9PdmVydmlldy5qc3giXSwibmFtZXMiOlsiUmVhY3QiLCJPdmVydmlldyJdLCJtYXBwaW5ncyI6IkFBQUEsT0FBT0EsS0FBUCxNQUFrQixPQUFsQjs7QUFFQSxNQUFNQyxRQUFRLEdBQUcsTUFBTTtBQUNuQixzQkFDSSw0Q0FESjtBQUtILENBTkQ7O0FBUUEsZUFBZUEsUUFBZiIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5cbmNvbnN0IE92ZXJ2aWV3ID0gKCkgPT4ge1xuICAgIHJldHVybiAoXG4gICAgICAgIDxkaXY+IFxuICAgICAgICAgICAgT3ZlcnZpZXdcbiAgICAgICAgPC9kaXY+XG4gICAgKVxufVxuXG5leHBvcnQgZGVmYXVsdCBPdmVydmlldzsiXX0=

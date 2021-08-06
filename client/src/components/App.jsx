@@ -15,7 +15,8 @@ align-items: center;
 font-family: Arial, Helvetica, sans-serif;
 `
 const Img = styled.img`
-width: 55%;
+width: 900px;
+height: auto;
 object-fit: contain;
 `
 
@@ -25,11 +26,11 @@ const App = (props) => {
 
   return (
     <Container>
-      <Header/>
-      <Img src={'./Overview.jpg'}/>
+      {/* <Header/>
+      <Img src={'./Overview.jpg'}/> */}
       <RelatedProduct currentProductId={25171} />
-      <QA currentProductId={currentProductId} />
-      <Reviews currentProductId={currentProductId}/>
+      {/* <QA currentProductId={currentProductId} /> */}
+      {/* <Reviews currentProductId={currentProductId}/> */}
     </Container>
   );
 };
