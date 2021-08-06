@@ -28,7 +28,6 @@ app.get('/reviews', (req, res) => {
 
 app.get('/reviews/meta', (req, res) => {
   var id = req.query.product_id;
-  console.log("product id 2", id);
   reviews.getMetaReviews(id)
     .then((data) => {
       res.status(200).send(data.data);
@@ -39,9 +38,7 @@ app.get('/reviews/meta', (req, res) => {
 });
 
 app.put('/reviews/:review_id/helpful', (req, res) => {
-  console.log("params", req.params);
   var review_id = req.params.review_id;
-  console.log("review_id", review_id);
   reviews.putHelpfullness(review_id)
     .then((data) => {
       res.status(200).send(data.data);
@@ -50,6 +47,18 @@ app.put('/reviews/:review_id/helpful', (req, res) => {
       res.status(404).send(err);
     });
 });
+
+app.put('/reviews/:review_id/report', (req, res) => {
+  var review_id = req.params.review_id;
+  reviews.putReport(review_id)
+    .then((data) => {
+      res.status(200).send(data.data);
+    })
+    .catch((err) => {
+      res.status(404).send(err);
+    });
+});
+
 
 app.get('/products/:id', (req, res) => {
   var {id} = req.params;
