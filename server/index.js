@@ -84,8 +84,8 @@ app.get('/related/:id', (req, res) => {
     })
     .catch((err) => {
       res.status(404).send(err);
-    })
-})
+    });
+});
 
 app.get('/styles/:id', (req, res) => {
   //console.log('Related Products', req.params);
@@ -98,8 +98,8 @@ app.get('/styles/:id', (req, res) => {
     })
     .catch((err) => {
       res.status(404).send(err);
-    })
-})
+    });
+});
 
 
 app.get('/qa/questions/:id', (req, res) => {
@@ -112,6 +112,6 @@ app.get('/qa/questions/:id', (req, res) => {
     .catch((err) => {
       console.log(err);
       res.status(404).send(err);
-    })
-})
+    });
+});
 
