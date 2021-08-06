@@ -1,6 +1,10 @@
-import React, {useState, useEffect} from 'react';
-import Question from './Question.jsx';
+import React, {useState, useEffect, lazy, Suspense} from 'react';
 import styled from 'styled-components';
+
+//import Question from './Question.jsx';
+import Loading from '../Loading.jsx';
+
+const Question = lazy(() => import('./Question.jsx'));
 
 const Btn_div = styled.div`
 width: 100%;
@@ -71,7 +75,7 @@ const QuestionsList = ({questions}) => {
   }
 
   return (
-    <>
+    <Suspense fallback={<Loading/>}>
       {
         loaded ?
           displayQ.map(question => (
@@ -85,7 +89,7 @@ const QuestionsList = ({questions}) => {
         }
         <Q_btn>Add Question +</Q_btn>
       </Btn_div>
-    </>
+    </Suspense>
   )
 }
 

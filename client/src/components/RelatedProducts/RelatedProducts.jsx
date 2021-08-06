@@ -1,9 +1,14 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
-import Carousel from './Carousel.jsx';
 import axios from 'axios';
 import RelatedContext from './RelatedContext.jsx';
-import Modal from './Modal.jsx';
 import styled from 'styled-components';
+
+import Loading from '../Loading.jsx';
+// import Carousel from './Carousel.jsx';
+// import Modal from './Modal.jsx';
+
+const Carousel = lazy(() => import('./Carousel.jsx'));
+const Modal = lazy(() => import('./Modal.jsx'));
 
 const Container = styled.div`
 width: 60%;
@@ -125,12 +130,8 @@ const RelatedProduct = ({currentProductId}) => {
     }
   }
 
-  const renderLoader = () => (
-    <div>Loading</div>
-  )
-
   return (
-    <Suspense fallback-={renderLoader}>
+    <Suspense fallback={<Loading/>}>
       <Container>
         <RelatedContext.Provider value={{addOutfit, deleteOutfit, setImgClicked, setComparedInfo}}>
           {
