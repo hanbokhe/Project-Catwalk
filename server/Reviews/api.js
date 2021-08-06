@@ -26,6 +26,30 @@ const getMetaReviews = (id) =>
     }
   });
 
+const putHelpfullness = (review_id) =>
+  axios({
+    method: 'put',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/reviews/${review_id}/helpful`,
+    params: {
+      review_id: review_id
+    },
+    headers: {
+      'Authorization': TOKEN.TOKEN
+    }
+  });
+
+const putReport = (review_id) =>
+  axios({
+    method: 'put',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/reviews/${review_id}/report`,
+    params: {
+      review_id: review_id
+    },
+    headers: {
+      'Authorization': TOKEN.TOKEN
+    }
+  });
+
 module.exports = {
-  getReviews, getMetaReviews
+  getReviews, getMetaReviews, putHelpfullness, putReport
 };
