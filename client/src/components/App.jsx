@@ -30,21 +30,19 @@ const App = (props) => {
   const [currentProductId, setCurrentProduct] = useState(25192);
 
   return (
-    <div>
-      <Router>
-        <Container>
-          <Suspense fallback={<Loading/>}>
-            <Header/>
-            <Img src={'./Overview.jpg'} alt={'Product Details'}/>
-            <Switch>
-              <RelatedProduct currentProductId={25171} />
-              <QA currentProductId={currentProductId} />
-              {/* <Reviews currentProductId={currentProductId}/> */}
-            </Switch>
-          </Suspense>
-        </Container>
-      </Router>
-    </div>
+    <Router>
+      <Container>
+        <Suspense fallback={<Loading/>}>
+          <Header/>
+          <Img src={'./Overview.jpg'} alt={'Product Details'}/>
+          <Switch>
+            <RelatedProduct currentProductId={25171} />
+            <QA currentProductId={currentProductId} />
+            <Reviews currentProductId={currentProductId}/>
+          </Switch>
+        </Suspense>
+      </Container>
+    </Router>
   );
 };
 
