@@ -130,14 +130,10 @@ class ReviewTile extends React.Component {
   }
 
 
-  putHelpfullness(id) {
-    axios({
-      method: 'put',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/reviews/${id}/helpful`,
-      headers: {
-        'Authorization': TOKEN.TOKEN
-      }
-    });
+  putHelpfullness(review_id) {
+    axios.put(`/reviews/${review_id}/helpful`)
+      .then(console.log("helpfulness updated"))
+      .catch((err) => console.error(err));
   }
 
   handleVoteYes() {
@@ -149,6 +145,7 @@ class ReviewTile extends React.Component {
         };
       });
     }
+    console.log(this.props.review.review_id);
     this.putHelpfullness(this.props.review.review_id);
     return false;
   }
