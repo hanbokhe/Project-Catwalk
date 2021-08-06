@@ -1,5 +1,5 @@
 import React, {useState, lazy, Suspense} from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Loading from './Loading.jsx';
@@ -36,9 +36,11 @@ const App = (props) => {
         <Header/>
         <Img src={'./Overview.jpg'} alt={'Product Details'}/>
         <Suspense fallback={<Loading/>}>
-          <RelatedProduct currentProductId={25171} />
-          <QA currentProductId={currentProductId} />
-          {/* <Reviews currentProductId={currentProductId}/> */}
+          <Switch>
+            <RelatedProduct currentProductId={25171} />
+            <QA currentProductId={currentProductId} />
+            {/* <Reviews currentProductId={currentProductId}/> */}
+          </Switch>
         </Suspense>
       </Container>
     </Router>
