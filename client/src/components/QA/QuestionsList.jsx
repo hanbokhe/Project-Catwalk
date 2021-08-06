@@ -75,7 +75,7 @@ const QuestionsList = ({questions}) => {
       {
         loaded ?
           displayQ.map(question => (
-            <Question question={question} key={question.quesstion_id}/>
+            <Question question={question} key={question.question_id}/>
           ))
         : null
       }

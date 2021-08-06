@@ -104,7 +104,7 @@ app.get('/styles/:id', (req, res) => {
 
 app.get('/qa/questions/:id', (req, res) => {
   var {id} = req.params;
-  console.log(id);
+  //console.log(id);
   qa.getQuestions(id)
     .then(({data}) => {
       res.status(200).send(data);
