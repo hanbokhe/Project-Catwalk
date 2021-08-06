@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Header_div = styled.div`
 background-color: black;
 height: 80px;
-width: auto;
+width: 100%;
 display: flex;
 flex-direction: row;
 justify-content: space-between;
