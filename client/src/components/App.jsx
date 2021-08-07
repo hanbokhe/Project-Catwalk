@@ -44,7 +44,7 @@ const App = (props) => {
         <QA currentProductId={currentProductId} />
       </Suspense>
       <Suspense fallback={<Loading/>}>
-        {/* <Reviews currentProductId={currentProductId}/> */}
+        <Reviews currentProductId={currentProductId}/>
       </Suspense>
     </Container>
   );
