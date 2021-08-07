@@ -145,7 +145,6 @@ class ReviewTile extends React.Component {
         };
       });
     }
-    console.log(this.props.review.review_id);
     this.putHelpfullness(this.props.review.review_id);
     return false;
   }
