@@ -9,10 +9,10 @@ var getRelated = (id) => {
     headers: {
       'Authorization': `${TOKEN}`
     }
-  };
+  }
 
   return axios(options);
-};
+}
 
 var getStyles = (id) => {
   //console.log('id: ', id);
@@ -22,10 +22,10 @@ var getStyles = (id) => {
     headers: {
       'Authorization': `${TOKEN}`
     }
-  };
+  }
 
   return axios(options);
-};
+}
 
 const getProducts = (id) => {
   var options = {
@@ -34,9 +34,9 @@ const getProducts = (id) => {
     headers: {
       'Authorization': `${TOKEN}`
     }
-  };
+  }
   return axios(options);
-};
+}
 
 const getMetaReviews = (id) => {
   var options = {
