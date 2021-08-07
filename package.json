@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack --mode development --watch",
     "server": "npx nodemon server/index.js",
-    "test": "jest"
+    "test": "jest --silent"
   },
   "repository": {
     "type": "git",
