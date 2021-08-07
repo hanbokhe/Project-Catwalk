@@ -18,10 +18,10 @@ justify-content: space-between;
 class Reviews extends React.Component {
   constructor(props) {
     super(props);
-    this.filterStar = this.filterStar.bind(this);
     this.state = {
       filterStar: [0, false]
     };
+    this.filterStar = this.filterStar.bind(this);
   }
 
   filterStar(star, isClick) {
