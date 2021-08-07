@@ -1,4 +1,6 @@
 const path = require ('path');
+const CompressionPlugin = require("compression-webpack-plugin");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: './client/src/index.js',
@@ -24,5 +26,6 @@ module.exports = {
       }
     ]
   },
+  plugins: [new CompressionPlugin(), new BundleAnalyzerPlugin()],
   mode: 'production'
 };

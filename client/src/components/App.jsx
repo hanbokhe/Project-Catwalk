@@ -33,10 +33,18 @@ const App = (props) => {
     <Container>
       <Suspense fallback={<Loading/>}>
         <Header/>
+      </Suspense>
+      <Suspense fallback={<Loading/>}>
         <Img src={'./Overview.jpg'} alt={'Product Details'}/>
+      </Suspense>
+      <Suspense fallback={<Loading/>}>
         <RelatedProduct currentProductId={25171} />
+      </Suspense>
+      <Suspense fallback={<Loading/>}>
         <QA currentProductId={currentProductId} />
-        <Reviews currentProductId={currentProductId}/>
+      </Suspense>
+      <Suspense fallback={<Loading/>}>
+        {/* <Reviews currentProductId={currentProductId}/> */}
       </Suspense>
     </Container>
   );
@@ -48,6 +56,4 @@ export default App;
 //25170
 //25173
 //25193
-
-//review ID:
-// 348910
+//348910

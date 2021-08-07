@@ -54,7 +54,6 @@ color: lightgray;
 `
 
 const Modal = ({comparedInfo, currProduct, currReviews}) => {
-  const [characteristics, setChar] = useState(Object.entries(currReviews.characteristics));
   const {setImgClicked} = useContext(RelatedContext);
 
   const XClick = (e) => {
@@ -98,7 +97,7 @@ const Modal = ({comparedInfo, currProduct, currReviews}) => {
           <Cell>{comparedInfo.product.name}</Cell>
         </Row>
         {
-          characteristics.map( char => {
+          Object.entries(currReviews.characteristics).map( char => {
             return (
               <Row>
                 <Cell>{getCurrValue(char[1])}</Cell>
