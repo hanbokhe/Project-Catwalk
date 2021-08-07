@@ -25,7 +25,6 @@ const RelatedProduct = () => {
   useEffect(() => {
     axios.get(`/related/${currentItem}`)
       .then(({data}) => {
-        //console.log('this is data from server', data);
         setDisplay(data);
       })
       .catch((err) => {

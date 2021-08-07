@@ -1,12 +1,15 @@
 const express = require('express');
+const compression = require('compression');
 const axios = require('axios');
-// const overview = require('./Overview/api.js');
+
 const relatedProducts = require('./RelatedProducts/api.js');
 const qa = require('./QA/api.js');
 const reviews = require('./Reviews/api.js');
 
 const app = express();
 const PORT = 3000;
+
+app.use(compression());
 
 app.use(express.static('client/public'));
 app.use(express.json());
