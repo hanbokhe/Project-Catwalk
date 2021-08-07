@@ -88,7 +88,7 @@ const Modal = ({comparedInfo, currProduct, currReviews}) => {
     <Container>
       <Title>
         Comparing
-        <X onClick={XClick} className={"fas fa-times"}/>
+        <X onClick={XClick}>&#10006;</X>
       </Title>
       <Table>
         <Row>
@@ -97,7 +97,7 @@ const Modal = ({comparedInfo, currProduct, currReviews}) => {
           <Cell>{comparedInfo.product.name}</Cell>
         </Row>
         {
-          Object.entries(currReviews.characteristics).map( char => {
+          Object.entries(currReviews.characteristics).map(char => {
             return (
               <Row>
                 <Cell>{getCurrValue(char[1])}</Cell>

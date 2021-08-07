@@ -137,7 +137,7 @@ const Card = ({style, product, isOutfit}) => {
         <Card_div>
           {
             isOutfit?
-              <X onClick={deleteClick} >X</X>
+              <X onClick={deleteClick} >&#10006;</X>
               : <Heart onClick={addClick} >&#10084;</Heart>
           }
           <Img_div>
