@@ -7,10 +7,11 @@ a modern e-commerce clothing website
 
 ## Features
 - 👗 **Related Products:** lets users know and group related products
-- 👔 **Questions and Answers:** allows users ask questions to a product and answer a question.
+- 👔 **Questions and Answers:** allows users to ask questions to a product and answer a question.
+- 👖 **Rating and Reviews**: allows users to rate a product and write a review for the product.
 
 ## Demo
-
+**Demo video**: https://youtu.be/KQufd-euiho
 ## Run Locally
 Check required tech is installed (see below).
 
