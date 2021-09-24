@@ -25,6 +25,15 @@ a modern e-commerce clothing website
 #### Performance
 ![Performance](https://github.com/Impreffively/Project-Catwalk/blob/main/projectcatwalk_gif/performance.gif?raw=true)
 
+#### Rating & Reviews
+![r&r](https://github.com/Impreffively/Project-Catwalk/blob/main/projectcatwalk_gif/rating_review.gif?raw=true)
+
+#### Filter rating
+![filter](https://github.com/Impreffively/Project-Catwalk/blob/main/projectcatwalk_gif/filter.gif?raw=true)
+
+#### Review pictures
+![review pictures](https://github.com/Impreffively/Project-Catwalk/blob/main/projectcatwalk_gif/lightbox.gif?raw=true)
+
 ## Run Locally
 Check required tech is installed (see below).
 
