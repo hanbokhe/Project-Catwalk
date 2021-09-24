@@ -12,6 +12,19 @@ a modern e-commerce clothing website
 
 ## Demo
 **Demo video**: https://youtu.be/KQufd-euiho
+
+#### Add favorites
+![Related products](https://github.com/Impreffively/Project-Catwalk/blob/main/projectcatwalk_gif/related_product_1.gif?raw=true)
+
+#### Compare products
+![Related products](https://github.com/Impreffively/Project-Catwalk/blob/main/projectcatwalk_gif/related_product2.gif?raw=true)
+
+#### Questions and Answers
+![Q&A](https://github.com/Impreffively/Project-Catwalk/blob/main/projectcatwalk_gif/qa.gif?raw=true)
+
+#### Performance
+![Performance](https://github.com/Impreffively/Project-Catwalk/blob/main/projectcatwalk_gif/performance.gif?raw=true)
+
 ## Run Locally
 Check required tech is installed (see below).
 
