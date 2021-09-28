@@ -1,5 +1,5 @@
 # Project Catwalk
-a modern e-commerce clothing website
+A modern e-commerce clothing website
 
 ## Authors
 - [@hanbokhe](https://github.com/hanbokhe)
