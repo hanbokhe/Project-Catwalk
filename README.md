@@ -1,4 +1,4 @@
-# Project Catwalk
+# glo apparel
 A modern e-commerce clothing website
 
 ## Authors
